@@ -1,0 +1,12 @@
+ul {
+  list-style-type: none;
+  -webkit-padding-start: 0;
+}
+
+.newgoal .save.disabled {
+  color: gray;
+}
+
+.submenu a.active {
+  font-weight: bold;
+}
