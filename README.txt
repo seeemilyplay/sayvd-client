@@ -23,7 +23,7 @@ To run the Sayvd client in an Android emulator in Eclipse:
 
 3) Run
 
-$ cp -r sayvd/client/core sayvd/client/android/assets/www
+$ cp -r sayvd/client/core/www sayvd/client/android/assets/www
 $ rm sayvd/client/android/assets/www/static_server.js
 
 4) Create an Eclipse android project based on sayvd/client/android
