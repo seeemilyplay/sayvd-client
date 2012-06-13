@@ -3,26 +3,46 @@
 <head>
 	<title>Sayvd</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="libs/jquery.mobile-1.1.0.min.css"/>
 	<link rel="stylesheet" href="css/styles.css"/>
-	<script type="text/javascript" charset="utf-8" src="cordova-1.7.0.js"></script>
-</head>
-<body>
+	
 	<script src="libs/jquery-1.7.2.min.js"></script>
+    <script src="js/jqm-config.js"></script>
+	<script src="libs/jquery.mobile-1.1.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova-1.7.0.js"></script>
+	
 	<script src="libs/underscore-min.js"></script>
 	<script src="libs/backbone-min.js"></script>
 	
 	<script src="js/utils.js"></script>
+	
 	<script src="js/models/goalmodel.js"></script>
 	<script src="js/models/habitmodel.js"></script>
 	<script src="js/models/newgoalmodel.js"></script>
+	<script src="js/models/newhabitmodel.js"></script>
+	<script src="js/models/newsavingmodel.js"></script>
+	<script src="js/models/pagemodel.js"></script>
+	<script src="js/models/savingmodel.js"></script>
 	<script src="js/models/submenumodel.js"></script>
+	
 	<script src="js/views/goallistview.js"></script>
+	<script src="js/views/habitselectview.js"></script>
 	<script src="js/views/newgoalview.js"></script>
+	<script src="js/views/newsavingview.js"></script>
+	<script src="js/views/pageview.js"></script>
 	<script src="js/views/submenuview.js"></script>
+	
 	<script src="js/main.js"></script>
 	
 	<script type="text/javascript">
-	    startApp();
+	    $(document).ready(function () {
+		    console.log("starting app");
+	        startApp();
+		});
 	</script>
+</head>
+<body data-role="page">
 </body>
 </html>

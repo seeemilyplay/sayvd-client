@@ -3,7 +3,7 @@ ul {
   -webkit-padding-start: 0;
 }
 
-.newgoal .save.disabled {
+.save.disabled {
   color: gray;
 }
 

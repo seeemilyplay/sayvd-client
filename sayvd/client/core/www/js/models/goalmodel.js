@@ -3,6 +3,12 @@ window.Goal = Backbone.Model.extend({
 		name:  "",
 		target: 0.0,
 		saved: 0.0
+	},
+	save: function(amount) {
+	    var saved = this.get("saved");
+	    this.set({
+	        saved: saved + amount
+	    });
 	}
 });
 
