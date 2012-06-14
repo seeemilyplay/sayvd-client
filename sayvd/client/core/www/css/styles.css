@@ -1,12 +1,32 @@
-ul {
-  list-style-type: none;
-  -webkit-padding-start: 0;
+ul { 
+  padding: 0; 
+  margin: 0; 
 }
 
-.save.disabled {
-  color: gray;
+li { 
+  list-style-type:none; 
+} 
+
+input.currency {
+  min-width: 60px;
 }
 
-.submenu a.active {
-  font-weight: bold;
+#save div.ui-slider {
+  display: block;
+  margin-left: 0;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+#save .ui-select {
+  display: inline-block;
+}
+
+#habit .ui-content .ui-listview {
+  margin-top: 10px;
+}
+
+#habit input.ui-input-text {
+  display: inline-block;
+  width: auto;
 }

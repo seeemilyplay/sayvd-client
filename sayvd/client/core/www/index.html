@@ -1,48 +1,172 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Sayvd</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<link rel="stylesheet" href="libs/jquery.mobile-1.1.0.min.css"/>
-	<link rel="stylesheet" href="css/styles.css"/>
-	
-	<script src="libs/jquery-1.7.2.min.js"></script>
-    <script src="js/jqm-config.js"></script>
-	<script src="libs/jquery.mobile-1.1.0.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="cordova-1.7.0.js"></script>
-	
-	<script src="libs/underscore-min.js"></script>
-	<script src="libs/backbone-min.js"></script>
-	
-	<script src="js/utils.js"></script>
-	
-	<script src="js/models/goalmodel.js"></script>
-	<script src="js/models/habitmodel.js"></script>
-	<script src="js/models/newgoalmodel.js"></script>
-	<script src="js/models/newhabitmodel.js"></script>
-	<script src="js/models/newsavingmodel.js"></script>
-	<script src="js/models/pagemodel.js"></script>
-	<script src="js/models/savingmodel.js"></script>
-	<script src="js/models/submenumodel.js"></script>
-	
-	<script src="js/views/goallistview.js"></script>
-	<script src="js/views/habitselectview.js"></script>
-	<script src="js/views/newgoalview.js"></script>
-	<script src="js/views/newsavingview.js"></script>
-	<script src="js/views/pageview.js"></script>
-	<script src="js/views/submenuview.js"></script>
-	
-	<script src="js/main.js"></script>
-	
-	<script type="text/javascript">
-	    $(document).ready(function () {
-		    console.log("starting app");
-	        startApp();
-		});
-	</script>
+  <title>Sayvd</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="libs/css/jquery.mobile.min.css"/>
+
+  <link rel="stylesheet" href="css/styles.css"/>
+
+  <script src="libs/jquery-1.7.2.min.js"></script>
+  <script src="libs/jquery.mobile.min.js"></script>
+  <script src="cordova-1.7.0.js"></script>
+
+  <script src="libs/underscore-min.js"></script>
+  <script src="libs/backbone-min.js"></script>
+  
+
+  <script src="js/models/habitmodel.js"></script>
+  <script src="js/models/savemodel.js"></script>
+  <script src="js/models/appmodel.js"></script>
+  
+  <script src="js/views/habitview.js"></script>
+  <script src="js/views/saveview.js"></script>
 </head>
-<body data-role="page">
+<body>
+  
+  <script type="text/javascript">
+    var app = new App();
+  </script>
+
+  <div data-role="page" id="intro">
+    <div data-role="header"><h1>Sayvd</h1></div> 
+    <div data-role="content">
+      <form>
+	    <div><a href="#save">OK</a></div>
+      </form>
+    </div>
+  </div>
+  
+  <div data-role="page" id="save">
+    <div data-role="header"><h1>Sayvd</h1></div> 
+	<div data-role="content">
+      <form>
+        <div>
+          <span>I didn't </span>
+          <span class="habit"><a href="#habit" data-role="button" data-inline="true">habit name</a></span>
+          <span> and</span>
+        </div>
+        <div>saved £ <input type="range" name="amount" value="1.0" min="0.1" step="0.01" max="50" class="currency"></input></div>
+        <div>
+          <span>for a </span>
+          <select name="goal" data-native-menu="false">
+            <option value="0">Snowboard</option>
+            <option value="1">Holiday</option>
+          </select>
+        </div>
+        <button type="submit">Save</button>
+      </form>
+    </div> 
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#feed">Feed</a></li>
+          <li><a href="#save" class="ui-btn-active ui-state-persist">Save</a></li>
+          <li><a href="#goal">Goals</a></li>
+          <li><a href="#config">Settings</a></li>
+        </ul>
+      </div>
+	</div>
+  </div>
+  
+  <script type="text/javascript">
+    var saveview = new SaveView({
+      model: app.get("saves"),
+      el: jQuery("#save"),
+      app: app
+    });
+  </script>
+  
+  <div data-role="page" id="habit">
+    <div data-role="header"><h1>Sayvd</h1></div> 
+	<div data-role="content">
+      <form>
+	    <input type="text" value="Type your habit"></input>
+	    <a data-role="button" data-inline="true" >OK</a>
+        <ul data-role="listview">
+        </ul>
+      </form>
+    </div> 
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#feed">Feed</a></li>
+          <li><a href="#save" class="ui-btn-active ui-state-persist">Save</a></li>
+          <li><a href="#goal">Goals</a></li>
+          <li><a href="#config">Settings</a></li>
+        </ul>
+      </div>
+	</div>
+  </div>
+  
+  <script type="text/javascript">
+    var habitview = new HabitView({
+      model: app.get("habits"),
+      el: jQuery("#habit"),
+      onselect: function(habit) {
+        app.set({currenthabit: habit});
+      }
+    });
+  </script>
+
+  <div data-role="page" id="goal">
+    <div data-role="header"><h1>Sayvd</h1></div> 
+    <div data-role="content">
+      <form>
+	    <div>I've not made this yet!</div>
+      </form>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#feed">Feed</a></li>
+          <li><a href="#save">Save</a></li>
+          <li><a href="#goal" class="ui-btn-active ui-state-persist">Goals</a></li>
+          <li><a href="#config">Settings</a></li>
+        </ul>
+      </div>
+	</div>
+  </div>
+
+  <div data-role="page" id="feed">
+    <div data-role="header"><h1>Sayvd</h1></div> 
+    <div data-role="content">
+      <form>
+	    <div>I've not made this yet!</div>
+      </form>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#feed" class="ui-btn-active ui-state-persist">Feed</a></li>
+          <li><a href="#save">Save</a></li>
+          <li><a href="#goal">Goals</a></li>
+          <li><a href="#config">Settings</a></li>
+        </ul>
+      </div>
+	</div>
+  </div>
+
+  <div data-role="page" id="config">
+    <div data-role="header"><h1>Sayvd</h1></div> 
+    <div data-role="content">
+      <form>
+	    <div>I've not made this yet!</div>
+      </form>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#feed">Feed</a></li>
+          <li><a href="#save">Save</a></li>
+          <li><a href="#goal">Goals</a></li>
+          <li><a href="#config" class="ui-btn-active ui-state-persist">Settings</a></li>
+        </ul>
+      </div>
+	</div>
+  </div>
+  
 </body>
 </html>
