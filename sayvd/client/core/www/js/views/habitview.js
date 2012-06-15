@@ -7,7 +7,7 @@ window.HabitView = Backbone.View.extend({
                     'startEntry',
                     'reset',
                     'save');
-    this.model.get("habits").bind('add', this.renderNewListItem);
+    this.model.get('habits').bind('add', this.renderNewListItem);
 
     this.app = args.app;
     this.renderList();
@@ -15,7 +15,7 @@ window.HabitView = Backbone.View.extend({
   },
   renderList: function() {
     this.habitlist = $(this.el).find('.habit-list');
-    _.each(this.model.get("habits").models, this.renderListItem);
+    _.each(this.model.get('habits').models, this.renderListItem);
   },
   renderListItem: function(habit) {
     var app = this.model;
@@ -46,6 +46,6 @@ window.HabitView = Backbone.View.extend({
     this.nameinput.val('Type your habit');
   },
   save: function() {
-    return this.model.get("habits").save(this.nameinput.val());
+    return this.model.get('habits').save(this.nameinput.val());
   }
 });

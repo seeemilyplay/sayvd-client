@@ -6,7 +6,7 @@ window.FeedView = Backbone.View.extend({
     this.renderList();
   },
   renderList: function() {
-    this.savelist = $(this.el).find(".save-list");
+    this.savelist = $(this.el).find('.save-list');
 
     _.each(this.model.models, this.renderListItem);
   },
