@@ -127,11 +127,11 @@
       <div>
         <span>I didn't </span><span class="habit"></span><span> and</span>
       </div>
-      <div>saved £ <input type="range" name="amount" value="1.0" min="0.1" step="0.01" max="50" class="currency"></input></div>
+      <div>saved £ <input type="range" class="amount currency" value="1.0" min="0.1" step="0.01" max="50"></input></div>
       <div>
         <span>for a </span><span class="goal"></span>
       </div>
-      <a href="#feed" data-role="button">Save</a>
+      <a href="#feed" class="save" data-role="button">Save</a>
     </div> 
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">
@@ -277,7 +277,7 @@
       <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
     </div>
     <div data-role="content">
-      <ul data-role="listview">
+      <ul class="save-list" data-role="listview">
       </ul>
     </div>
     <div data-role="footer" data-position="fixed">

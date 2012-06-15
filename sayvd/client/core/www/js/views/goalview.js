@@ -59,6 +59,6 @@ window.NewGoalView = Backbone.View.extend({
   },
   save: function() {
     var targetinput = $(this.el).find("input.target");
-    return this.model.save(this.nameinput.val(), parseInt(targetinput.val()));
+    return this.model.save(this.nameinput.val(), parseFloat(targetinput.val()));
   }
 });

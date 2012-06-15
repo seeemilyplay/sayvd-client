@@ -46,20 +46,13 @@ window.SaveView = Backbone.View.extend({
   initializeListeners: function() {
     $(this.el).bind('pagebeforeshow', this.render);
 
-    this.amountinput = $(this.el).find("input[name='amount']");
-
-    var okbutton = $(this.el).find("a[data-role='button']");
-    okbutton.click(this.save);
+    $(this.el).find(".save").click(this.save);
   },
   save: function() {
-    var newSave = new NewSave({
-      saves: this.model.get('saves')
-    });
-    newSave.set({
-      amount: this.amountinput.val(),
-      habit: this.model.get('currenthabit'),
-      goal: this.model.get('currentgoal')
-    });
-    return newSave.save();
+    var amountinput = $(this.el).find("input.amount");
+    var saves = this.model.get("saves");
+    return saves.save(this.model.get('currenthabit'),
+                      this.model.get('currentgoal'),
+                      parseFloat(amountinput.val()));
   }
 });

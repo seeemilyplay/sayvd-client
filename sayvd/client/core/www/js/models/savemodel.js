@@ -7,7 +7,23 @@ window.Save = Backbone.Model.extend({
 });
 
 window.SaveCollection = Backbone.Collection.extend({
-  model: Save
+  model: Save,
+  save: function(habit, goal, amount) {
+    if (habit !== undefined &&
+        goal !== undefined &&
+        amount > 0.0) {
+      var save = new Save();
+      save.set({
+        habit: habit,
+        goal: goal,
+        amount: amount
+      });
+      this.add(save);
+      return true;
+    } else {
+      return false;
+    }
+  }
 });
 
 window.NewSave = Backbone.Model.extend({
