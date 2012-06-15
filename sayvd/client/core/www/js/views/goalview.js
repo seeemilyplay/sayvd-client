@@ -1,7 +1,7 @@
 window.GoalView = Backbone.View.extend({
   initialize: function(args) {
-    _(this).bindAll("renderList", "renderListItem", "renderNewListItem");
-    this.model.bind("add", this.renderNewListItem);
+    _(this).bindAll('renderList', 'renderListItem', 'renderNewListItem');
+    this.model.bind('add', this.renderNewListItem);
 
     this.renderList();
   },
@@ -11,27 +11,27 @@ window.GoalView = Backbone.View.extend({
     _.each(this.model.models, this.renderListItem);
   },
   renderListItem: function(goal) {
-    var li = _.template($("#goal-li-template").html(), {
-      name: goal.get("name"),
-      target: goal.get("target"),
-      saved: goal.get("saved"),
+    var li = _.template($('#goal-li-template').html(), {
+      name: goal.get('name'),
+      target: goal.get('target'),
+      saved: goal.get('saved'),
       percentage: goal.percentage()
     });
     this.goallist.prepend(li);
   },
   renderNewListItem: function(goal) {
     this.renderListItem(goal);
-    this.goallist.listview("refresh");
+    this.goallist.listview('refresh');
   }
 });
 
 window.NewGoalView = Backbone.View.extend({
   initialize: function(args) {
-    _(this).bindAll("initializeListeners",
-                    "resetGoalEntry",
-                    "startGoalEntry",
-                    "saveGoal");
-    this.model.bind("add", this.renderNewListItem);
+    _(this).bindAll('initializeListeners',
+                    'resetGoalEntry',
+                    'startGoalEntry',
+                    'saveGoal');
+    this.model.bind('add', this.renderNewListItem);
 
     this.initializeListeners();
   },
@@ -39,18 +39,18 @@ window.NewGoalView = Backbone.View.extend({
     this.nameinput = $(this.el).find("input[type='text']");
     this.targetinput = $(this.el).find("input[name='target']");
 
-    $(this.el).bind("pagebeforeshow", this.resetGoalEntry);
+    $(this.el).bind('pagebeforeshow', this.resetGoalEntry);
     this.nameinput.click(this.startGoalEntry);
 
     var okbutton = $(this.el).find("a[data-role='button']");
     okbutton.click(this.saveGoal);
   },
   resetGoalEntry: function() {
-    this.nameinput.val("Goal");
+    this.nameinput.val('Goal');
   },
   startGoalEntry: function() {
-    if (this.nameinput.val() === "Goal") {
-      this.nameinput.val("");
+    if (this.nameinput.val() === 'Goal') {
+      this.nameinput.val('');
     }
   },
   saveGoal: function() {

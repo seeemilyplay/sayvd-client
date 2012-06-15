@@ -20,13 +20,13 @@ window.NewSave = Backbone.Model.extend({
     this.set({saves: args.saves});
   },
   hasHabit: function() {
-    return this.get("habit") !== undefined;
+    return this.get('habit') !== undefined;
   },
   hasGoal: function() {
-    return this.get("goal") !== undefined;
+    return this.get('goal') !== undefined;
   },
   hasAmount: function() {
-    return this.get("amount") > 0.0;
+    return this.get('amount') > 0.0;
   },
   isReady: function() {
     return this.hasHabit() && this.hasGoal() && this.hasAmount();
@@ -35,12 +35,12 @@ window.NewSave = Backbone.Model.extend({
     if (this.isReady()) {
       var save = new Save();
       save.set({
-        amount: this.get("amount"),
-        habit: this.get("habit"),
-        goal: this.get("goal")
+        amount: this.get('amount'),
+        habit: this.get('habit'),
+        goal: this.get('goal')
       });
-      this.get("saves").add(save);
-      this.get("goal").save(save.get("amount"));
+      this.get('saves').add(save);
+      this.get('goal').save(save.get('amount'));
       return true;
     } else {
       return false;

@@ -1,13 +1,13 @@
 window.HabitView = Backbone.View.extend({
   initialize: function(args) {
-    _(this).bindAll("renderList",
-                    "renderListItem",
-                    "renderNewListItem",
-                    "initializeListeners",
-                    "resetHabitEntry",
-                    "startHabitEntry",
-                    "saveHabit");
-    this.model.bind("add", this.renderNewListItem);
+    _(this).bindAll('renderList',
+                    'renderListItem',
+                    'renderNewListItem',
+                    'initializeListeners',
+                    'resetHabitEntry',
+                    'startHabitEntry',
+                    'saveHabit');
+    this.model.bind('add', this.renderNewListItem);
 
     this.onselect = args.onselect;
     this.renderList();
@@ -19,8 +19,8 @@ window.HabitView = Backbone.View.extend({
     _.each(this.model.models, this.renderListItem);
   },
   renderListItem: function(habit) {
-    var link = $('<a href="#save" />').text(habit.get("name"));
-    var li = $("<li />").append(link);
+    var link = $('<a href="#save" />').text(habit.get('name'));
+    var li = $('<li />').append(link);
     this.habitlist.prepend(li);
     var onselect = this.onselect;
     link.click(function() {
@@ -29,23 +29,23 @@ window.HabitView = Backbone.View.extend({
   },
   renderNewListItem: function(habit) {
     this.renderListItem(habit);
-    this.habitlist.listview("refresh");
+    this.habitlist.listview('refresh');
   },
   initializeListeners: function() {
     this.nameinput = $(this.el).find("input[type='text']");
 
-    $(this.el).bind("pagebeforeshow", this.resetHabitEntry);
+    $(this.el).bind('pagebeforeshow', this.resetHabitEntry);
     this.nameinput.click(this.startHabitEntry);
 
     var okbutton = $(this.el).find("a[data-role='button']");
     okbutton.click(this.saveHabit);
   },
   resetHabitEntry: function() {
-    this.nameinput.val("Type your habit");
+    this.nameinput.val('Type your habit');
   },
   startHabitEntry: function() {
-    if (this.nameinput.val() === "Type your habit") {
-      this.nameinput.val("");
+    if (this.nameinput.val() === 'Type your habit') {
+      this.nameinput.val('');
     }
   },
   saveHabit: function() {

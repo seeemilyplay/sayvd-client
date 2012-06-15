@@ -1,10 +1,10 @@
 window.SaveView = Backbone.View.extend({
   initialize: function(args) {
-    _(this).bindAll("render",
-                    "renderHabit",
-                    "renderGoal",
-                    "initializeListeners",
-                    "save");
+    _(this).bindAll('render',
+                    'renderHabit',
+                    'renderGoal',
+                    'initializeListeners',
+                    'save');
 
     this.initializeListeners();
   },
@@ -13,38 +13,38 @@ window.SaveView = Backbone.View.extend({
     this.renderGoal();
   },
   renderHabit: function() {
-    var habit = $(this.el).find(".habit");
+    var habit = $(this.el).find('.habit');
     habit.empty();
     var button = $('<a href="#habit" data-role="button" data-inline="true" />');
-    button.text(this.model.get("currenthabit").get("name"));
+    button.text(this.model.get('currenthabit').get('name'));
     habit.append(button);
-    habit.trigger("create");
+    habit.trigger('create');
   },
   renderGoal: function() {
-    var goal = $(this.el).find(".goal");
+    var goal = $(this.el).find('.goal');
     goal.empty();
-    var selectedgoal = this.model.get("selectedgoal");
+    var selectedgoal = this.model.get('selectedgoal');
     var select = $('<select name="goal" data-native-menu="false"></select>');
     var i = 0;
-    _.each(this.model.get("goals").models, function(goal) {
-      var item = $('<option />').attr("value", i).text(goal.get("name"));
+    _.each(this.model.get('goals').models, function(goal) {
+      var item = $('<option />').attr('value', i).text(goal.get('name'));
       i++;
       if (goal === selectedgoal) {
-        item.attr("selected", "true");
+        item.attr('selected', 'true');
       }
       select.prepend(item);
     });
     var app = this.model;
     select.change(function() {
       app.set({
-        currentgoal: app.get("goals").models[select.val()]
+        currentgoal: app.get('goals').models[select.val()]
       });
     });
     goal.append(select);
-    goal.trigger("create");
+    goal.trigger('create');
   },
   initializeListeners: function() {
-    $(this.el).bind("pagebeforeshow", this.render);
+    $(this.el).bind('pagebeforeshow', this.render);
 
     this.amountinput = $(this.el).find("input[name='amount']");
 
@@ -53,12 +53,12 @@ window.SaveView = Backbone.View.extend({
   },
   save: function() {
     var newSave = new NewSave({
-      saves: this.model.get("saves")
+      saves: this.model.get('saves')
     });
     newSave.set({
       amount: this.amountinput.val(),
-      habit: this.model.get("currenthabit"),
-      goal: this.model.get("currentgoal")
+      habit: this.model.get('currenthabit'),
+      goal: this.model.get('currentgoal')
     });
     return newSave.save();
   }
