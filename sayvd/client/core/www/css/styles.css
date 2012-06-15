@@ -35,6 +35,9 @@ input.currency {
 
 #goal .left {
   display: inline-block;
+  min-width: 110px;
+  text-align: center;
+  margin-right: 30px;
 }
 
 #goal .right {
@@ -42,9 +45,9 @@ input.currency {
 }
 
 #goal .percentage {
-  margin-top: 5px;
+  margin-top: auto;
   margin-bottom: 5px;
-  margin-right: 10px;
+  margin-right: auto;
   padding: 10px 5px;
   font-size: 24px;
   border: solid 1px black;

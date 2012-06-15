@@ -13,16 +13,16 @@ window.GoalView = Backbone.View.extend({
     _.each(this.model.models, this.renderListItem);
   },
   renderListItem: function(goal) {
-    var li = _.template($('#goal-li-template').html(), {
+    var li = $(_.template($('#goal-li-template').html(), {
       name: goal.get('name'),
       target: goal.get('target'),
       saved: goal.get('saved'),
       percentage: goal.percentage()
-    });
+    }));
     this.goallist.prepend(li);
     goal.bind('change:saved', function() {
-      $(li).find('.per-num').text(goal.percentage());
-      $(li).find('.saved-num').text(goal.get('saved'));
+      li.find('.percentage').text(goal.percentage() + '%');
+      li.find('.saved-num').text(goal.get('saved'));
       return true;
     });
   },

@@ -7,7 +7,6 @@ window.FeedView = Backbone.View.extend({
   },
   renderList: function() {
     this.savelist = $(this.el).find('.save-list');
-
     _.each(this.model.models, this.renderListItem);
   },
   renderListItem: function(save) {
@@ -20,6 +19,11 @@ window.FeedView = Backbone.View.extend({
   },
   renderNewListItem: function(save) {
     this.renderListItem(save);
-    this.savelist.listview('refresh');
+    try {
+      //todo: figure out why this sometimes errors
+      this.savelist.listview("refresh");
+    } catch (e) {
+      console.error(e);
+    }
   }
 });
