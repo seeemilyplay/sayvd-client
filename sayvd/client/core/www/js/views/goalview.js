@@ -1,12 +1,14 @@
 window.GoalView = Backbone.View.extend({
   initialize: function(args) {
-    _(this).bindAll('renderList', 'renderListItem', 'renderNewListItem');
+    _(this).bindAll('renderList',
+                    'renderListItem',
+                    'renderNewListItem');
     this.model.bind('add', this.renderNewListItem);
 
     this.renderList();
   },
   renderList: function() {
-    this.goallist = $(this.el).find("[data-role='content'] ul");
+    this.goallist = $(this.el).find(".goal-list");
 
     _.each(this.model.models, this.renderListItem);
   },
@@ -18,6 +20,11 @@ window.GoalView = Backbone.View.extend({
       percentage: goal.percentage()
     });
     this.goallist.prepend(li);
+    goal.bind('change:saved', function() {
+      $(li).find('.per-num').text(goal.percentage());
+      $(li).find('.saved-num').text(goal.get('saved'));
+      return true;
+    });
   },
   renderNewListItem: function(goal) {
     this.renderListItem(goal);
@@ -28,39 +35,30 @@ window.GoalView = Backbone.View.extend({
 window.NewGoalView = Backbone.View.extend({
   initialize: function(args) {
     _(this).bindAll('initializeListeners',
-                    'resetGoalEntry',
-                    'startGoalEntry',
-                    'saveGoal');
-    this.model.bind('add', this.renderNewListItem);
+                    'startEntry',
+                    'reset',
+                    'save');
 
     this.initializeListeners();
   },
   initializeListeners: function() {
-    this.nameinput = $(this.el).find("input[type='text']");
-    this.targetinput = $(this.el).find("input[name='target']");
+    this.nameinput = $(this.el).find("input.name");
 
-    $(this.el).bind('pagebeforeshow', this.resetGoalEntry);
-    this.nameinput.click(this.startGoalEntry);
+    $(this.el).bind('pagebeforeshow', this.reset);
+    this.nameinput.click(this.startEntry);
 
-    var okbutton = $(this.el).find("a[data-role='button']");
-    okbutton.click(this.saveGoal);
+    $(this.el).find(".save").click(this.save);
   },
-  resetGoalEntry: function() {
-    this.nameinput.val('Goal');
-  },
-  startGoalEntry: function() {
+  startEntry: function() {
     if (this.nameinput.val() === 'Goal') {
       this.nameinput.val('');
     }
   },
-  saveGoal: function() {
-    var newGoal = new NewGoal({
-      goals: this.model
-    });
-    newGoal.set({
-      name: this.nameinput.val(),
-      target: parseInt(this.targetinput.val())
-    });
-    return newGoal.save();
+  reset: function() {
+    this.nameinput.val('Goal');
+  },
+  save: function() {
+    var targetinput = $(this.el).find("input.target");
+    return this.model.save(this.nameinput.val(), parseInt(targetinput.val()));
   }
 });

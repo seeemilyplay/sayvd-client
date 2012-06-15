@@ -195,7 +195,7 @@
       </div>
     </div>
     <div data-role="content">
-      <ul data-role="listview">
+      <ul class="goal-list" data-role="listview">
       </ul>
     </div>
     <div data-role="footer" data-position="fixed">
@@ -213,10 +213,14 @@
     <li>
       <div>Goal</div>
       <div>
-        <div class="left"><div class="percentage"><%= percentage %>%</div></div>
+        <div class="left">
+          <div class="percentage">
+            <span class="per-num"><%= percentage %></per-num>%
+          </div>
+        </div>
         <div class="right">
           <div><%= name %></div>
-          <div>Saved £<%= saved %> of £<%= target %></div>
+          <div>Saved £<span class='saved-num'><%= saved %></span> of £<%= target %></div>
         </div>
       </div>
     </li>
@@ -244,9 +248,9 @@
     <div data-role="content">
       <div class="subtitle">Set a new goal</div>
       <div>What are you saving for?</div>
-      <input type="text" value="Goal"></input>
-      <div>Price £ <input type="range" name="target" value="100" min="20" step="10" max="1000" class="currency"></input></div>
-      <a href="#goal" data-role="button">Save</a>
+      <input class="name" type="text" value="Goal"></input>
+      <div>Price £ <input class="target currency" type="range" value="100" min="20" step="10" max="1000"></input></div>
+      <a class="save" href="#goal" data-role="button">Save</a>
     </div>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">

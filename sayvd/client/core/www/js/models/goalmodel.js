@@ -18,53 +18,37 @@ window.Goal = Backbone.Model.extend({
     } else if (target < 0.01) {
       return 100.0;
     } else {
-      return (saved * 100.0);
+      return (saved * 100.0) / target;
     }
   }
 });
 
 window.GoalCollection = Backbone.Collection.extend({
-  model: Goal
-});
+  model: Goal,
+  save: function(rawname, target) {
+    var name = rawname.trim();
 
-window.NewGoal = Backbone.Model.extend({
-  defaults: {
-    name: '',
-    target: 0.0
-  },
-  initialize: function(args) {
-    this.set({goals: args.goals});
-  },
-  isNamed: function() {
-    return this.get('name').length > 0 && this.get('name') !== 'Goal';
-  },
-  hasTarget: function() {
-    return this.get('target') > 0.0;
-  },
-  isUnique: function() {
-    var name = this.get('name').trim();
+    var named = name.length > 0 && name !== 'Goal';
+    var targeted = target > 0.0;
+
     var unique = true;
-    _.each(this.get('goals').models, function(goal) {
+    _.each(this.models, function(goal) {
       if (name === goal.get('name')) {
         unique = false;
       }
     });
-    return unique;
-  },
-  isReady: function() {
-    return this.isNamed() && this.hasTarget() && this.isUnique();
-  },
-  save: function() {
-    if (this.isReady()) {
+
+    if (named && targeted && unique) {
       var goal = new Goal();
       goal.set({
-        name: this.get('name'),
-        target: this.get('target')
+        name: name,
+        target: target
       });
-      this.get('goals').add(goal);
+      this.add(goal);
       return true;
     } else {
       return false;
     }
   }
 });
+

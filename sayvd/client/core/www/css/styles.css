@@ -15,6 +15,7 @@ input.currency {
 #newgoal div.ui-slider {
   display: block;
   margin-left: 0;
+  margin-right: 5px;
   margin-bottom: 16px;
   width: 100%;
 }
