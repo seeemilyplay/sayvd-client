@@ -52,3 +52,7 @@ input.currency {
 #newgoal .subtitle {
   font-weight: bold;
 }
+
+.help-next {
+  float: right;
+}

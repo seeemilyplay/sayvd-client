@@ -33,17 +33,97 @@
     var app = new App();
   </script>
 
-  <div data-role="page" id="intro">
-    <div data-role="header"><h1>Sayvd</h1></div> 
+  <div data-role="page" id="help0">
+    <div data-role="header" data-position="inline">
+      <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext"  class="ui-btn-active ui-state-persist">Help</a>
+      <h1>Sayvd</h1>
+      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+    </div>
     <div data-role="content">
-	  <div>Intro ...</div>
-	  <a href="#save">OK</a>
+      <h2>Tour of the service</h2>
+      <div>
+           Sayvd.com allows you to
+           save money on things you
+           resist purchasing, by
+           transferring cash
+           from your account and
+           storing it for you till you
+           reach the goals you set up.
+      </div>
+      <div class="ui-grid-a">
+        <div class="ui-block-a"></div>
+        <div class="ui-block-b">
+          <a href="#help1" class="help-next" data-role="button" data-icon="arrow-r" data-iconpos="notext">Next</a>
+        </div>
+      </div>
     </div>
   </div>
-  
+
+  <div data-role="page" id="help1">
+    <div data-role="header" data-position="inline">
+      <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext"  class="ui-btn-active ui-state-persist">Help</a>
+      <h1>Sayvd</h1>
+      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+    </div>
+    <div data-role="content">
+      <h2>Can I have my money back whenever I want?</h2>
+      <div>
+           Your money is yours even if
+           its not within your immediate
+           reach. You can have it back
+           whenever you like. Allow 4
+           bank days, bank standard.
+      </div>
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <a href="#help0" class="help-last" data-role="button" data-icon="arrow-l" data-iconpos="notext">Back</a>
+        </div>
+        <div class="ui-block-b">
+          <a href="#help2" class="help-next" data-role="button" data-icon="arrow-r" data-iconpos="notext">Next</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-role="page" id="help2">
+    <div data-role="header" data-position="inline">
+      <a href="#help2" data-role="button" data-icon="star" data-iconpos="notext"  class="ui-btn-active ui-state-persist">Help</a>
+      <h1>Sayvd</h1>
+      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+    </div>
+    
+    <div data-role="content">
+      <h2>Any hidden costs?</h2>
+      <div>
+           We charge you 1% for the
+           transaction fee. So that's £6 for
+           a snowboard worth £600.
+           Could be worth it..
+      </div>
+      <h2>How safe is it?</h2>
+      <div>
+        We use x for transactions who
+        have a transaction FSA
+        approval, like any other bank.
+      </div>
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <a href="#help1" class="help-last" data-role="button" data-icon="arrow-l" data-iconpos="notext">Back</a>
+        </div>
+        <div class="ui-block-b">
+          <a href="#save" class="help-next" data-role="button" data-icon="arrow-r" data-iconpos="notext">Next</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div data-role="page" id="save">
-    <div data-role="header"><h1>Sayvd</h1></div> 
-  <div data-role="content">
+    <div data-role="header" data-position="inline">
+      <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
+      <h1>Sayvd</h1>
+      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+    </div>
+    <div data-role="content">
       <div>
         <span>I didn't </span><span class="habit"></span><span> and</span>
       </div>
@@ -59,7 +139,6 @@
           <li><a href="#feed">Feed</a></li>
           <li><a href="#save" class="ui-btn-active ui-state-persist">Save</a></li>
           <li><a href="#goal">Goals</a></li>
-          <li><a href="#config">Settings</a></li>
         </ul>
       </div>
     </div>
@@ -74,7 +153,11 @@
   </script>
 
   <div data-role="page" id="habit">
-    <div data-role="header"><h1>Sayvd</h1></div> 
+    <div data-role="header" data-position="inline">
+      <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
+      <h1>Sayvd</h1>
+      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+    </div>
     <div data-role="content">
     <input type="text" value="Type your habit"></input>
     <a data-role="button" data-inline="true" >OK</a>
@@ -87,7 +170,6 @@
           <li><a href="#feed">Feed</a></li>
           <li><a href="#save" class="ui-btn-active ui-state-persist">Save</a></li>
           <li><a href="#goal">Goals</a></li>
-          <li><a href="#config">Settings</a></li>
         </ul>
       </div>
     </div>
@@ -104,8 +186,10 @@
   </script>
 
   <div data-role="page" id="goal">
-    <div data-role="header">
+    <div data-role="header" data-position="inline">
+      <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
       <h1>Sayvd</h1>
+      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
       <div data-role="navbar">
         <ul>
           <li><a href="#goal" class="ui-btn-active ui-state-persist">My goals</a></li>
@@ -123,7 +207,6 @@
           <li><a href="#feed">Feed</a></li>
           <li><a href="#save">Save</a></li>
           <li><a href="#goal" class="ui-btn-active ui-state-persist">Goals</a></li>
-          <li><a href="#config">Settings</a></li>
         </ul>
       </div>
     </div>
@@ -150,8 +233,10 @@
   </script>
 
   <div data-role="page" id="newgoal">
-    <div data-role="header">
+    <div data-role="header" data-position="inline">
+      <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
       <h1>Sayvd</h1>
+      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
       <div data-role="navbar">
         <ul>
           <li><a href="#goal">My goals</a></li>
@@ -172,7 +257,6 @@
           <li><a href="#feed">Feed</a></li>
           <li><a href="#save">Save</a></li>
           <li><a href="#goal" class="ui-btn-active ui-state-persist">Goals</a></li>
-          <li><a href="#config">Settings</a></li>
         </ul>
       </div>
     </div>
@@ -186,7 +270,11 @@
   </script>
 
   <div data-role="page" id="feed">
-    <div data-role="header"><h1>Sayvd</h1></div>
+    <div data-role="header" data-position="inline">
+      <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
+      <h1>Sayvd</h1>
+      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+    </div>
     <div data-role="content">
       <ul data-role="listview">
       </ul>
@@ -197,7 +285,6 @@
           <li><a href="#feed" class="ui-btn-active ui-state-persist">Feed</a></li>
           <li><a href="#save">Save</a></li>
           <li><a href="#goal">Goals</a></li>
-          <li><a href="#config">Settings</a></li>
         </ul>
       </div>
     </div>
@@ -217,9 +304,13 @@
   </script>
 
   <div data-role="page" id="config">
-    <div data-role="header"><h1>Sayvd</h1></div> 
+    <div data-role="header" data-position="inline">
+      <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
+      <h1>Sayvd</h1>
+      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-active ui-state-persist">Options</a>
+    </div>
     <div data-role="content">
-      <div>I've not made this yet!</div>
+      <div>This would be where you could configure obscure options, but it's not made yet, so there's nothing here.</div>
     </div>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">
@@ -227,7 +318,6 @@
           <li><a href="#feed">Feed</a></li>
           <li><a href="#save">Save</a></li>
           <li><a href="#goal">Goals</a></li>
-          <li><a href="#config" class="ui-btn-active ui-state-persist">Settings</a></li>
         </ul>
       </div>
     </div>
