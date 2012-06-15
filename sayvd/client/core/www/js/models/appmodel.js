@@ -4,10 +4,19 @@ window.App = Backbone.Model.extend({
     var drinkCoffee = new Habit();
     drinkCoffee.set({name: "drink coffee"});
     habits.add(drinkCoffee);
+    
+    var goals = new GoalCollection();
+    var holidayInIbiza = new Goal();
+    holidayInIbiza.set({name: "Holiday in Ibiza", target: 550.0});
+    goals.add(holidayInIbiza);
+    var snowboard = new Goal();
+    snowboard.set({name: "Snowboard", target: 400.0});
+    goals.add(snowboard);
     return {
       habits: habits,
-      currenthabit: drinkCoffee
+      currenthabit: drinkCoffee,
+      goals: goals,
+      currentgoal: snowboard
     };
   }()
 });
-

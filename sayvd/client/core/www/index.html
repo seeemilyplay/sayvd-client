@@ -15,17 +15,19 @@
 
   <script src="libs/underscore-min.js"></script>
   <script src="libs/backbone-min.js"></script>
-  
+
 
   <script src="js/models/habitmodel.js"></script>
+  <script src="js/models/goalmodel.js"></script>
   <script src="js/models/savemodel.js"></script>
   <script src="js/models/appmodel.js"></script>
-  
+
   <script src="js/views/habitview.js"></script>
+  <script src="js/views/goalview.js"></script>
   <script src="js/views/saveview.js"></script>
 </head>
 <body>
-  
+
   <script type="text/javascript">
     var app = new App();
   </script>
@@ -33,15 +35,14 @@
   <div data-role="page" id="intro">
     <div data-role="header"><h1>Sayvd</h1></div> 
     <div data-role="content">
-      <form>
-	    <div><a href="#save">OK</a></div>
-      </form>
+	  <div>Intro ...</div>
+	  <a href="#save">OK</a>
     </div>
   </div>
   
   <div data-role="page" id="save">
     <div data-role="header"><h1>Sayvd</h1></div> 
-	<div data-role="content">
+  <div data-role="content">
       <form>
         <div>
           <span>I didn't </span>
@@ -68,7 +69,7 @@
           <li><a href="#config">Settings</a></li>
         </ul>
       </div>
-	</div>
+    </div>
   </div>
   
   <script type="text/javascript">
@@ -78,16 +79,14 @@
       app: app
     });
   </script>
-  
+
   <div data-role="page" id="habit">
     <div data-role="header"><h1>Sayvd</h1></div> 
-	<div data-role="content">
-      <form>
-	    <input type="text" value="Type your habit"></input>
-	    <a data-role="button" data-inline="true" >OK</a>
-        <ul data-role="listview">
-        </ul>
-      </form>
+    <div data-role="content">
+    <input type="text" value="Type your habit"></input>
+    <a data-role="button" data-inline="true" >OK</a>
+    <ul data-role="listview">
+    </ul>
     </div> 
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">
@@ -98,9 +97,9 @@
           <li><a href="#config">Settings</a></li>
         </ul>
       </div>
-	</div>
+    </div>
   </div>
-  
+
   <script type="text/javascript">
     var habitview = new HabitView({
       model: app.get("habits"),
@@ -112,11 +111,18 @@
   </script>
 
   <div data-role="page" id="goal">
-    <div data-role="header"><h1>Sayvd</h1></div> 
+    <div data-role="header">
+      <h1>Sayvd</h1>
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#goal" class="ui-btn-active ui-state-persist">My goals</a></li>
+          <li><a href="#newgoal">New goal</a></li>
+        </ul>
+      </div>
+    </div>
     <div data-role="content">
-      <form>
-	    <div>I've not made this yet!</div>
-      </form>
+      <ul data-role="listview">
+      </ul>
     </div>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">
@@ -127,15 +133,62 @@
           <li><a href="#config">Settings</a></li>
         </ul>
       </div>
-	</div>
+    </div>
+  </div>
+
+  <script type="text/template" id="goal-li-template">
+    <li>
+      <div>Goal</div>
+      <div>
+        <div class="left"><div class="percentage"><%= percentage %>%</div></div>
+        <div class="right">
+          <div><%= name %></div>
+          <div>Saved £<%= saved %> of £<%= target %></div>
+        </div>
+      </div>
+    </li>
+  </script>
+
+  <script type="text/javascript">
+    var goalview = new GoalView({
+      model: app.get("goals"),
+      el: jQuery("#goal")
+    });
+  </script>
+
+  <div data-role="page" id="newgoal">
+    <div data-role="header">
+      <h1>Sayvd</h1>
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#goal">My goals</a></li>
+          <li><a href="#newgoal" class="ui-btn-active ui-state-persist">New goal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="content">
+      <div class="subtitle">Set a new goal</div>
+      <div>What are you saving for?</div>
+      <input type="text" value="Goal"></input>
+      <div>Price £ <input type="range" name="target" value="100" min="20" step="10" max="1000" class="currency"></input></div>
+      <button type="submit">Save</button>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#feed">Feed</a></li>
+          <li><a href="#save">Save</a></li>
+          <li><a href="#goal" class="ui-btn-active ui-state-persist">Goals</a></li>
+          <li><a href="#config">Settings</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <div data-role="page" id="feed">
     <div data-role="header"><h1>Sayvd</h1></div> 
     <div data-role="content">
-      <form>
-	    <div>I've not made this yet!</div>
-      </form>
+    <div>I've not made this yet!</div>
     </div>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">
@@ -146,15 +199,13 @@
           <li><a href="#config">Settings</a></li>
         </ul>
       </div>
-	</div>
+    </div>
   </div>
 
   <div data-role="page" id="config">
     <div data-role="header"><h1>Sayvd</h1></div> 
     <div data-role="content">
-      <form>
-	    <div>I've not made this yet!</div>
-      </form>
+      <div>I've not made this yet!</div>
     </div>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">
@@ -165,8 +216,8 @@
           <li><a href="#config" class="ui-btn-active ui-state-persist">Settings</a></li>
         </ul>
       </div>
-	</div>
+    </div>
   </div>
-  
+
 </body>
 </html>

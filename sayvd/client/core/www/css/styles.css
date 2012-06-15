@@ -1,17 +1,18 @@
-ul { 
+ul {
   padding: 0; 
   margin: 0; 
 }
 
-li { 
+li {
   list-style-type:none; 
-} 
+}
 
 input.currency {
   min-width: 60px;
 }
 
-#save div.ui-slider {
+#save div.ui-slider,
+#newgoal div.ui-slider {
   display: block;
   margin-left: 0;
   margin-bottom: 16px;
@@ -29,4 +30,25 @@ input.currency {
 #habit input.ui-input-text {
   display: inline-block;
   width: auto;
+}
+
+#goal .left {
+  display: inline-block;
+}
+
+#goal .right {
+  display: inline-block;
+}
+
+#goal .percentage {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  padding: 10px 5px;
+  font-size: 24px;
+  border: solid 1px black;
+}
+
+#newgoal .subtitle {
+  font-weight: bold;
 }

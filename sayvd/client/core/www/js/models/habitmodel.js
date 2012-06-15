@@ -39,8 +39,8 @@ window.NewHabit = Backbone.Model.extend({
         });
         this.get("habits").add(habit);
         return true;
-	  } else {
-	    return false;
-	  }
-	}
+  } else {
+    return false;
+  }
+}
 });
