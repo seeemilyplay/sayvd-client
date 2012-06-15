@@ -10,14 +10,14 @@ window.SaveCollection = Backbone.Collection.extend({
   model: Save
 });
 
-window.NewSaving = Backbone.Model.extend({
+window.NewSave = Backbone.Model.extend({
   defaults: {
     amount:  0.0,
     habit: undefined,
     goal: undefined
   },
   initialize: function(args) {
-    this.set({savings: args.savings});
+    this.set({saves: args.saves});
   },
   hasHabit: function() {
     return this.get("habit")!==undefined;
@@ -33,14 +33,14 @@ window.NewSaving = Backbone.Model.extend({
   },
   save: function() {
     if (this.isReady()) {
-      var saving = new Saving();
-      saving.set({
+      var save = new Save();
+      save.set({
         amount: this.get("amount"),
         habit: this.get("habit"),
         goal: this.get("goal")
       });
-      this.get("savings").add(saving);
-      this.get("goal").save(saving.get("amount"));
+      this.get("saves").add(save);
+      this.get("goal").save(save.get("amount"));
       return true;
     } else {
       return false;

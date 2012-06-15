@@ -10,13 +10,15 @@ window.App = Backbone.Model.extend({
     holidayInIbiza.set({name: "Holiday in Ibiza", target: 550.0});
     goals.add(holidayInIbiza);
     var snowboard = new Goal();
+    var saves = new SaveCollection();
     snowboard.set({name: "Snowboard", target: 400.0});
     goals.add(snowboard);
     return {
       habits: habits,
       currenthabit: drinkCoffee,
       goals: goals,
-      currentgoal: snowboard
+      currentgoal: snowboard,
+      saves: saves
     };
   }()
 });
