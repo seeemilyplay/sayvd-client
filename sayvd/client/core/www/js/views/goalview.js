@@ -12,10 +12,10 @@ window.GoalView = Backbone.View.extend({
   },
   renderListItem: function(goal) {
     var li = _.template($("#goal-li-template").html(), {
-      name: goal.get("name")
-    , target: goal.get("target")
-    , saved: goal.get("saved")
-    , percentage: goal.percentage()
+      name: goal.get("name"),
+      target: goal.get("target"),
+      saved: goal.get("saved"),
+      percentage: goal.percentage()
     });
     this.goallist.prepend(li);
   },
@@ -27,7 +27,10 @@ window.GoalView = Backbone.View.extend({
 
 window.NewGoalView = Backbone.View.extend({
   initialize: function(args) {
-    _(this).bindAll("initializeListeners", "resetGoalEntry", "startGoalEntry", "saveGoal");
+    _(this).bindAll("initializeListeners",
+                    "resetGoalEntry",
+                    "startGoalEntry",
+                    "saveGoal");
     this.model.bind("add", this.renderNewListItem);
 
     this.initializeListeners();
@@ -46,7 +49,7 @@ window.NewGoalView = Backbone.View.extend({
     this.nameinput.val("Goal");
   },
   startGoalEntry: function() {
-    if (this.nameinput.val()==="Goal") {
+    if (this.nameinput.val() === "Goal") {
       this.nameinput.val("");
     }
   },

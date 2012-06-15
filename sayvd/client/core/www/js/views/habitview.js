@@ -1,6 +1,12 @@
 window.HabitView = Backbone.View.extend({
   initialize: function(args) {
-    _(this).bindAll("renderList", "renderListItem", "renderNewListItem", "initializeListeners", "resetHabitEntry", "startHabitEntry", "saveHabit");
+    _(this).bindAll("renderList",
+                    "renderListItem",
+                    "renderNewListItem",
+                    "initializeListeners",
+                    "resetHabitEntry",
+                    "startHabitEntry",
+                    "saveHabit");
     this.model.bind("add", this.renderNewListItem);
 
     this.onselect = args.onselect;
@@ -38,7 +44,7 @@ window.HabitView = Backbone.View.extend({
     this.nameinput.val("Type your habit");
   },
   startHabitEntry: function() {
-    if (this.nameinput.val()==="Type your habit") {
+    if (this.nameinput.val() === "Type your habit") {
       this.nameinput.val("");
     }
   },
@@ -49,7 +55,7 @@ window.HabitView = Backbone.View.extend({
     newHabit.set({name: this.nameinput.val()});
     var saved = newHabit.save();
     if (saved) {
-      this.onselect(this.model.models[this.model.length-1]);
+      this.onselect(this.model.models[this.model.length - 1]);
       return true;
     } else {
       return false;

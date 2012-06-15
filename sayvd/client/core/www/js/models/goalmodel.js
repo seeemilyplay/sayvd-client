@@ -1,6 +1,6 @@
 window.Goal = Backbone.Model.extend({
   defaults: {
-    name:  "",
+    name: "",
     target: 0.0,
     saved: 0.0
   },
@@ -13,9 +13,9 @@ window.Goal = Backbone.Model.extend({
   percentage: function() {
     var saved = this.get("saved");
     var target = this.get("target");
-    if (saved<0.01) {
+    if (saved < 0.01) {
       return 0.0;
-    } else if (target<0.01) {
+    } else if (target < 0.01) {
       return 100.0;
     } else {
       return (saved * 100.0);
@@ -29,23 +29,23 @@ window.GoalCollection = Backbone.Collection.extend({
 
 window.NewGoal = Backbone.Model.extend({
   defaults: {
-    name:  "",
+    name: "",
     target: 0.0
   },
   initialize: function(args) {
     this.set({goals: args.goals});
   },
   isNamed: function() {
-    return this.get("name").length>0 && this.get("name")!=="Goal";
+    return this.get("name").length > 0 && this.get("name") !== "Goal";
   },
   hasTarget: function() {
-    return this.get("target")>0.0;
+    return this.get("target") > 0.0;
   },
   isUnique: function() {
     var name = this.get("name").trim();
     var unique = true;
     _.each(this.get("goals").models, function(goal) {
-      if (name===goal.get("name")) {
+      if (name === goal.get("name")) {
         unique = false;
       }
     });

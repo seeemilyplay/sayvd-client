@@ -4,7 +4,7 @@ window.App = Backbone.Model.extend({
     var drinkCoffee = new Habit();
     drinkCoffee.set({name: "drink coffee"});
     habits.add(drinkCoffee);
-    
+
     var goals = new GoalCollection();
     var holidayInIbiza = new Goal();
     holidayInIbiza.set({name: "Holiday in Ibiza", target: 550.0});

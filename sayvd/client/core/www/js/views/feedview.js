@@ -12,9 +12,9 @@ window.FeedView = Backbone.View.extend({
   },
   renderListItem: function(save) {
     var li = _.template($("#feed-li-template").html(), {
-      habit: save.get("habit").get("name")
-    , goal: save.get("goal").get("name")
-    , amount: save.get("amount")
+      habit: save.get("habit").get("name"),
+      goal: save.get("goal").get("name"),
+      amount: save.get("amount")
     });
     this.savelist.prepend(li);
   },

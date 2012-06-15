@@ -1,6 +1,10 @@
 window.SaveView = Backbone.View.extend({
   initialize: function(args) {
-    _(this).bindAll("render", "renderHabit", "renderGoal", "initializeListeners", "save");
+    _(this).bindAll("render",
+                    "renderHabit",
+                    "renderGoal",
+                    "initializeListeners",
+                    "save");
 
     this.initializeListeners();
   },
@@ -11,7 +15,7 @@ window.SaveView = Backbone.View.extend({
   renderHabit: function() {
     var habit = $(this.el).find(".habit");
     habit.empty();
-    var button = $('<a href="#habit" data-role="button" data-inline="true"></a>');
+    var button = $('<a href="#habit" data-role="button" data-inline="true" />');
     button.text(this.model.get("currenthabit").get("name"));
     habit.append(button);
     habit.trigger("create");
@@ -25,7 +29,7 @@ window.SaveView = Backbone.View.extend({
     _.each(this.model.get("goals").models, function(goal) {
       var item = $('<option />').attr("value", i).text(goal.get("name"));
       i++;
-      if (goal===selectedgoal) {
+      if (goal === selectedgoal) {
         item.attr("selected", "true");
       }
       select.prepend(item);
