@@ -4,27 +4,25 @@ window.HabitView = Backbone.View.extend({
                     'renderListItem',
                     'renderNewListItem',
                     'initializeListeners',
-                    'resetHabitEntry',
-                    'startHabitEntry',
-                    'saveHabit');
-    this.model.bind('add', this.renderNewListItem);
+                    'startEntry',
+                    'reset',
+                    'save');
+    this.model.get("habits").bind('add', this.renderNewListItem);
 
-    this.onselect = args.onselect;
+    this.app = args.app;
     this.renderList();
     this.initializeListeners();
   },
   renderList: function() {
-    this.habitlist = $(this.el).find("[data-role='content'] ul");
-
-    _.each(this.model.models, this.renderListItem);
+    this.habitlist = $(this.el).find('.habit-list');
+    _.each(this.model.get("habits").models, this.renderListItem);
   },
   renderListItem: function(habit) {
+    var app = this.model;
     var link = $('<a href="#save" />').text(habit.get('name'));
-    var li = $('<li />').append(link);
-    this.habitlist.prepend(li);
-    var onselect = this.onselect;
+    this.habitlist.prepend($('<li />').append(link));
     link.click(function() {
-      onselect(habit);
+      app.set({ currenthabit: habit });
     });
   },
   renderNewListItem: function(habit) {
@@ -32,33 +30,22 @@ window.HabitView = Backbone.View.extend({
     this.habitlist.listview('refresh');
   },
   initializeListeners: function() {
-    this.nameinput = $(this.el).find("input[type='text']");
+    this.nameinput = $(this.el).find('input.habit');
 
-    $(this.el).bind('pagebeforeshow', this.resetHabitEntry);
-    this.nameinput.click(this.startHabitEntry);
+    $(this.el).bind('pagebeforeshow', this.reset);
+    this.nameinput.click(this.startEntry);
 
-    var okbutton = $(this.el).find("a[data-role='button']");
-    okbutton.click(this.saveHabit);
+    $(this.el).find('.save').click(this.save);
   },
-  resetHabitEntry: function() {
-    this.nameinput.val('Type your habit');
-  },
-  startHabitEntry: function() {
+  startEntry: function() {
     if (this.nameinput.val() === 'Type your habit') {
       this.nameinput.val('');
     }
   },
-  saveHabit: function() {
-    var newHabit = new NewHabit({
-      habits: this.model
-    });
-    newHabit.set({name: this.nameinput.val()});
-    var saved = newHabit.save();
-    if (saved) {
-      this.onselect(this.model.models[this.model.length - 1]);
-      return true;
-    } else {
-      return false;
-    }
+  reset: function() {
+    this.nameinput.val('Type your habit');
+  },
+  save: function() {
+    return this.model.get("habits").save(this.nameinput.val());
   }
 });

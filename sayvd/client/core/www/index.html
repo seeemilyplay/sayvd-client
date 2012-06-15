@@ -159,10 +159,10 @@
       <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
     </div>
     <div data-role="content">
-    <input type="text" value="Type your habit"></input>
-    <a data-role="button" data-inline="true" >OK</a>
-    <ul data-role="listview">
-    </ul>
+      <input class="habit" type="text" value="Type your habit"></input>
+      <a class="save" data-role="button" data-inline="true" >OK</a>
+      <ul class="habit-list" data-role="listview">
+      </ul>
     </div> 
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">
@@ -177,11 +177,8 @@
 
   <script type="text/javascript">
     var habitview = new HabitView({
-      model: app.get("habits"),
-      el: jQuery("#habit"),
-      onselect: function(habit) {
-        app.set({currenthabit: habit});
-      }
+      model: app,
+      el: jQuery("#habit")
     });
   </script>
 

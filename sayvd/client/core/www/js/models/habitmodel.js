@@ -5,43 +5,28 @@ window.Habit = Backbone.Model.extend({
 });
 
 window.HabitCollection = Backbone.Collection.extend({
-  model: Habit
-});
+  model: Habit,
+  save: function(rawname) {
+    var name = rawname.trim();
 
-window.NewHabit = Backbone.Model.extend({
-  defaults: {
-    name: ''
-  },
-  initialize: function(args) {
-    this.set({habits: args.habits});
-  },
-  isNamed: function() {
-    return this.get('name').trim().length > 0 &&
-             this.get('name').trim() !== 'Type your habit';
-  },
-  isUnique: function() {
-    var name = this.get('name').trim();
+    var named = name.length > 0 && name !== 'Type your habit';
+
     var unique = true;
-    _.each(this.get('habits').models, function(habit) {
+    _.each(this.models, function(habit) {
       if (name === habit.get('name')) {
         unique = false;
       }
     });
-    return unique;
-  },
-  isReady: function() {
-    return this.isNamed() && this.isUnique();
-  },
-  save: function() {
-    if (this.isReady()) {
+
+    if (named && unique) {
       var habit = new Habit();
-        habit.set({
-          name: this.get('name').trim()
-        });
-        this.get('habits').add(habit);
-        return true;
-  } else {
-    return false;
+      habit.set({
+        name: name
+      });
+      this.add(habit);
+      return true;
+    } else {
+      return false;
+    }
   }
-}
 });
