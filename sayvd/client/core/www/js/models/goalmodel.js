@@ -36,13 +36,23 @@ window.NewGoal = Backbone.Model.extend({
     this.set({goals: args.goals});
   },
   isNamed: function() {
-    return this.get("name").length>0;
+    return this.get("name").length>0 && this.get("name")!=="Goal";
   },
   hasTarget: function() {
     return this.get("target")>0.0;
   },
+  isUnique: function() {
+    var name = this.get("name").trim();
+    var unique = true;
+    _.each(this.get("goals").models, function(goal) {
+      if (name===goal.get("name")) {
+        unique = false;
+      }
+    });
+    return unique;
+  },
   isReady: function() {
-    return this.isNamed() && this.hasTarget(); 
+    return this.isNamed() && this.hasTarget() && this.isUnique();
   },
   save: function() {
     if (this.isReady()) {

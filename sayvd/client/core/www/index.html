@@ -43,22 +43,22 @@
   <div data-role="page" id="save">
     <div data-role="header"><h1>Sayvd</h1></div> 
   <div data-role="content">
-      <form>
-        <div>
-          <span>I didn't </span>
-          <span class="habit"><a href="#habit" data-role="button" data-inline="true">habit name</a></span>
-          <span> and</span>
-        </div>
-        <div>saved £ <input type="range" name="amount" value="1.0" min="0.1" step="0.01" max="50" class="currency"></input></div>
-        <div>
-          <span>for a </span>
+      <div>
+        <span>I didn't </span>
+        <span class="habit"><a href="#habit" data-role="button" data-inline="true">habit name</a></span>
+        <span> and</span>
+      </div>
+      <div>saved £ <input type="range" name="amount" value="1.0" min="0.1" step="0.01" max="50" class="currency"></input></div>
+      <div>
+        <span>for a </span>
+        <span class="goal">
           <select name="goal" data-native-menu="false">
             <option value="0">Snowboard</option>
             <option value="1">Holiday</option>
           </select>
-        </div>
-        <button type="submit">Save</button>
-      </form>
+        </span>
+      </div>
+      <button type="submit">Save</button>
     </div> 
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">
@@ -74,7 +74,7 @@
   
   <script type="text/javascript">
     var saveview = new SaveView({
-      model: app.get("saves"),
+      model: app,
       el: jQuery("#save"),
       app: app
     });
@@ -171,7 +171,7 @@
       <div>What are you saving for?</div>
       <input type="text" value="Goal"></input>
       <div>Price £ <input type="range" name="target" value="100" min="20" step="10" max="1000" class="currency"></input></div>
-      <button type="submit">Save</button>
+      <a href="#goal" data-role="button">Save</a>
     </div>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">
@@ -184,6 +184,13 @@
       </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+    var newgoalview = new NewGoalView({
+      model: app.get("goals"),
+      el: jQuery("#newgoal")
+    });
+  </script>
 
   <div data-role="page" id="feed">
     <div data-role="header"><h1>Sayvd</h1></div> 

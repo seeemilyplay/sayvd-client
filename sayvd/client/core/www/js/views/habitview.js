@@ -3,7 +3,6 @@ window.HabitView = Backbone.View.extend({
     _(this).bindAll("renderList", "renderListItem", "renderNewListItem", "initializeListeners", "resetHabitEntry", "startHabitEntry", "saveHabit");
     this.model.bind("add", this.renderNewListItem);
 
-    //this bit is disgusting, need a shared model with saveview
     this.onselect = args.onselect;
     this.renderList();
     this.initializeListeners();

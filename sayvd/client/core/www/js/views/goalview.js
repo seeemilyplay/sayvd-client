@@ -21,6 +21,43 @@ window.GoalView = Backbone.View.extend({
   },
   renderNewListItem: function(goal) {
     this.renderListItem(goal);
-    this.habitlist.listview("refresh");
+    this.goallist.listview("refresh");
+  }
+});
+
+window.NewGoalView = Backbone.View.extend({
+  initialize: function(args) {
+    _(this).bindAll("initializeListeners", "resetGoalEntry", "startGoalEntry", "saveGoal");
+    this.model.bind("add", this.renderNewListItem);
+
+    this.initializeListeners();
+  },
+  initializeListeners: function() {
+    this.nameinput = $(this.el).find("input[type='text']");
+    this.targetinput = $(this.el).find("input[name='target']");
+
+    $(this.el).bind("pagebeforeshow", this.resetGoalEntry);
+    this.nameinput.click(this.startGoalEntry);
+
+    var okbutton = $(this.el).find("a[data-role='button']");
+    okbutton.click(this.saveGoal);
+  },
+  resetGoalEntry: function() {
+    this.nameinput.val("Goal");
+  },
+  startGoalEntry: function() {
+    if (this.nameinput.val()==="Goal") {
+      this.nameinput.val("");
+    }
+  },
+  saveGoal: function() {
+    var newGoal = new NewGoal({
+      goals: this.model
+    });
+    newGoal.set({
+      name: this.nameinput.val(),
+      target: parseInt(this.targetinput.val())
+    });
+    return newGoal.save();
   }
 });
