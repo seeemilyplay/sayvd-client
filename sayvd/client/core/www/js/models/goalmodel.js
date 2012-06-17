@@ -28,7 +28,7 @@ window.GoalCollection = Backbone.Collection.extend({
   save: function(rawname, target) {
     var name = rawname.trim();
 
-    var named = name.length > 0 && name !== 'Goal';
+    var named = name.length > 0 && name !== 'Goal' && name !== 'Insert dream toy here';
     var targeted = target > 0.0;
 
     var unique = true;

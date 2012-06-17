@@ -16,45 +16,36 @@
   <script src="libs/underscore-min.js"></script>
   <script src="libs/backbone-min.js"></script>
 
-
-  <script src="js/models/habitmodel.js"></script>
-  <script src="js/models/goalmodel.js"></script>
-  <script src="js/models/savemodel.js"></script>
-  <script src="js/models/appmodel.js"></script>
-
-  <script src="js/views/habitview.js"></script>
-  <script src="js/views/goalview.js"></script>
-  <script src="js/views/saveview.js"></script>
-  <script src="js/views/feedview.js"></script>
 </head>
 <body>
-
-  <script type="text/javascript">
-    var app = new App();
-  </script>
 
   <div data-role="page" id="help0">
     <div data-role="header" data-position="fixed" data-id="title">
       <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext"  class="ui-btn-active ui-state-persist">Help</a>
       <h1>Sayvd</h1>
-      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+      <a class="options" href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
     </div>
     <div data-role="content">
       <h2>Tour of the service</h2>
-      <div>
-           Sayvd.com allows you to
-           save money on things you
-           resist purchasing, by
-           transferring cash
-           from your account and
-           storing it for you till you
-           reach the goals you set up.
-      </div>
+      <p>
+        Sayvd.com allows you to save money on things you resist purchasing, by
+        transferring cash from your account and storing it for you till you
+        reach the goals you set up.
+      </p>
       <div class="ui-grid-a">
         <div class="ui-block-a"></div>
         <div class="ui-block-b">
           <a href="#help1" class="help-next" data-role="button" data-icon="arrow-r" data-iconpos="notext">Next</a>
         </div>
+      </div>
+    </div>
+    <div data-role="footer" data-position="fixed" data-id="mainmenu">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#feed">Feed</a></li>
+          <li><a href="#save">Save</a></li>
+          <li><a href="#goal">Goals</a></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -63,17 +54,15 @@
     <div data-role="header" data-position="fixed" data-id="title">
       <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext"  class="ui-btn-active ui-state-persist">Help</a>
       <h1>Sayvd</h1>
-      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+      <a class="options" href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
     </div>
     <div data-role="content">
       <h2>Can I have my money back whenever I want?</h2>
-      <div>
-           Your money is yours even if
-           its not within your immediate
-           reach. You can have it back
-           whenever you like. Allow 4
-           bank days, bank standard.
-      </div>
+      <p>
+        Your money is yours even if its not within your immediate
+        reach. You can have it back whenever you like. Allow 4
+        bank days, bank standard.
+      </p>
       <div class="ui-grid-a">
         <div class="ui-block-a">
           <a href="#help0" class="help-last" data-role="button" data-icon="arrow-l" data-iconpos="notext">Back</a>
@@ -83,37 +72,95 @@
         </div>
       </div>
     </div>
+    <div data-role="footer" data-position="fixed" data-id="mainmenu">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#feed">Feed</a></li>
+          <li><a href="#save">Save</a></li>
+          <li><a href="#goal">Goals</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <div data-role="page" id="help2">
     <div data-role="header" data-position="fixed" data-id="title">
-      <a href="#help2" data-role="button" data-icon="star" data-iconpos="notext"  class="ui-btn-active ui-state-persist">Help</a>
+      <a href="#help2" data-role="button" data-icon="star" data-iconpos="notext" class="ui-btn-active ui-state-persist">Help</a>
       <h1>Sayvd</h1>
-      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+      <a class="options" href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
     </div>
-    
     <div data-role="content">
       <h2>Any hidden costs?</h2>
-      <div>
-           We charge you 1% for the
-           transaction fee. So that's £6 for
-           a snowboard worth £600.
-           Could be worth it..
-      </div>
+      <p>
+        We charge you 1% for the transaction fee. So that's £6 for
+        a snowboard worth £600. Could be worth it..
+      </p>
       <h2>How safe is it?</h2>
-      <div>
-        We use x for transactions who
-        have a transaction FSA
+      <p>
+        We use x for transactions who have a transaction FSA
         approval, like any other bank.
-      </div>
+      </p>
       <div class="ui-grid-a">
         <div class="ui-block-a">
           <a href="#help1" class="help-last" data-role="button" data-icon="arrow-l" data-iconpos="notext">Back</a>
         </div>
         <div class="ui-block-b">
-          <a href="#save" class="help-next" data-role="button" data-icon="arrow-r" data-iconpos="notext">Next</a>
+          <a href="#firstgoal" class="help-next last" data-role="button" data-icon="arrow-r" data-iconpos="notext">Next</a>
         </div>
       </div>
+    </div>
+    <div data-role="footer" data-position="fixed" data-id="mainmenu">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#feed">Feed</a></li>
+          <li><a href="#save">Save</a></li>
+          <li><a href="#goal">Goals</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div data-role="page" id="firstgoal">
+    <div data-role="header" data-position="fixed" data-id="title">
+      <a href="#firstgoal" data-role="button" data-icon="star" data-iconpos="notext" class="ui-btn-active ui-state-persist">Help</a>
+      <h1>Sayvd</h1>
+    </div>
+    <div data-role="content">
+      <h2>What would you like to save for?</h2>
+      <p>Save for a snowboard, a trip or the deposit for an apartment.</p>
+      <input class="name" type="text" value="Insert dream toy here"></input>
+      <div>Approximate price £ <input class="target currency" type="range" value="600" min="20" step="10" max="1000"></input></div>
+      <a class="save" href="#setup" data-role="button">Save</a>
+    </div>
+  </div>
+
+  <div data-role="page" id="setup">
+    <div data-role="header" data-position="fixed" data-id="title">
+      <a href="#setup" data-role="button" data-icon="star" data-iconpos="notext" class="ui-btn-active ui-state-persist">Help</a>
+      <h1>Sayvd</h1>
+    </div>
+    <div data-role="content">
+      <p>Congratulations, you have just set up your first saving goal, a <span class='goal'></span>.</p>
+      <p>You can save virtually or add a credit card or account that will be debited whenever you save.</p>
+      <a href="#test" class="ui-disabled" data-role="button">Add card/bank account</a>
+      <a href="#test" data-role="button">Go virtual</a>
+    </div>
+  </div>
+
+  <div data-role="page" id="test">
+    <div data-role="header" data-position="fixed" data-id="title">
+      <a href="#test" data-role="button" data-icon="star" data-iconpos="notext" class="ui-btn-active ui-state-persist">Help</a>
+      <h1>Sayvd</h1>
+    </div>
+    <div data-role="content">
+      <p>Great, you can now start moving your money from your immediate reach towards your goal.</p>
+      <div>
+        This is a test, I'm saving <span class="amount">£1</span>
+      </div>
+      <div>
+        For a <span class="goal"></span>.
+      </div>
+      <a href="#goal" class="save done" data-role="button">Save</a>
     </div>
   </div>
 
@@ -121,7 +168,7 @@
     <div data-role="header" data-position="fixed" data-id="title">
       <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
       <h1>Sayvd</h1>
-      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+      <a class="options" href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
     </div>
     <div data-role="content">
       <div>
@@ -132,7 +179,7 @@
         <span>for a </span><span class="goal"></span>
       </div>
       <a href="#feed" class="save" data-role="button">Save</a>
-    </div> 
+    </div>
     <div data-role="footer" data-position="fixed" data-id="mainmenu">
       <div data-role="navbar">
         <ul>
@@ -143,20 +190,12 @@
       </div>
     </div>
   </div>
-  
-  <script type="text/javascript">
-    var saveview = new SaveView({
-      model: app,
-      el: jQuery("#save"),
-      app: app
-    });
-  </script>
 
   <div data-role="page" id="habit">
     <div data-role="header" data-position="fixed" data-id="title">
       <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
       <h1>Sayvd</h1>
-      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+      <a class="options" href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
     </div>
     <div data-role="content">
       <input class="habit" type="text" value="Type your habit"></input>
@@ -175,18 +214,11 @@
     </div>
   </div>
 
-  <script type="text/javascript">
-    var habitview = new HabitView({
-      model: app,
-      el: jQuery("#habit")
-    });
-  </script>
-
   <div data-role="page" id="goal">
     <div data-role="header" data-position="fixed" data-id="title">
       <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
       <h1>Sayvd</h1>
-      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+      <a class="options" href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
       <div data-role="navbar">
         <ul>
           <li><a href="#goal" class="ui-btn-active ui-state-persist">My goals</a></li>
@@ -224,18 +256,11 @@
     </li>
   </script>
 
-  <script type="text/javascript">
-    var goalview = new GoalView({
-      model: app.get("goals"),
-      el: jQuery("#goal")
-    });
-  </script>
-
   <div data-role="page" id="newgoal">
     <div data-role="header" data-position="fixed" data-id="title">
       <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
       <h1>Sayvd</h1>
-      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+      <a class="options" href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
       <div data-role="navbar">
         <ul>
           <li><a href="#goal">My goals</a></li>
@@ -261,18 +286,11 @@
     </div>
   </div>
 
-  <script type="text/javascript">
-    var newgoalview = new NewGoalView({
-      model: app.get("goals"),
-      el: jQuery("#newgoal")
-    });
-  </script>
-
   <div data-role="page" id="feed">
     <div data-role="header" data-position="fixed" data-id="title">
       <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
       <h1>Sayvd</h1>
-      <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
+      <a class="options" href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
     </div>
     <div data-role="content">
       <ul class="save-list" data-role="listview">
@@ -295,13 +313,6 @@
     </li>
   </script>
 
-  <script type="text/javascript">
-    var feedview = new FeedView({
-      model: app.get("saves"),
-      el: jQuery("#feed")
-    });
-  </script>
-
   <div data-role="page" id="config">
     <div data-role="header" data-position="fixed" data-id="title">
       <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
@@ -321,6 +332,25 @@
       </div>
     </div>
   </div>
+
+  <script src="js/models/habitmodel.js"></script>
+  <script src="js/models/goalmodel.js"></script>
+  <script src="js/models/savemodel.js"></script>
+  <script src="js/models/appmodel.js"></script>
+
+  <script src="js/views/habitview.js"></script>
+  <script src="js/views/goalview.js"></script>
+  <script src="js/views/saveview.js"></script>
+  <script src="js/views/feedview.js"></script>
+  <script src="js/views/setupview.js"></script>
+  <script src="js/views/appview.js"></script>
+
+  <script>
+    var app = new App();
+    var appview = new AppView({
+      model: app
+    });
+  </script>
 
 </body>
 </html>
