@@ -34,7 +34,7 @@
   </script>
 
   <div data-role="page" id="help0">
-    <div data-role="header" data-position="inline">
+    <div data-role="header" data-position="fixed" data-id="title">
       <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext"  class="ui-btn-active ui-state-persist">Help</a>
       <h1>Sayvd</h1>
       <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
@@ -60,7 +60,7 @@
   </div>
 
   <div data-role="page" id="help1">
-    <div data-role="header" data-position="inline">
+    <div data-role="header" data-position="fixed" data-id="title">
       <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext"  class="ui-btn-active ui-state-persist">Help</a>
       <h1>Sayvd</h1>
       <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
@@ -86,7 +86,7 @@
   </div>
 
   <div data-role="page" id="help2">
-    <div data-role="header" data-position="inline">
+    <div data-role="header" data-position="fixed" data-id="title">
       <a href="#help2" data-role="button" data-icon="star" data-iconpos="notext"  class="ui-btn-active ui-state-persist">Help</a>
       <h1>Sayvd</h1>
       <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
@@ -118,8 +118,8 @@
   </div>
 
   <div data-role="page" id="save">
-    <div data-role="header" data-position="inline">
-      <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
+    <div data-role="header" data-position="fixed" data-id="title">
+      <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
       <h1>Sayvd</h1>
       <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
     </div>
@@ -133,7 +133,7 @@
       </div>
       <a href="#feed" class="save" data-role="button">Save</a>
     </div> 
-    <div data-role="footer" data-position="fixed">
+    <div data-role="footer" data-position="fixed" data-id="mainmenu">
       <div data-role="navbar">
         <ul>
           <li><a href="#feed">Feed</a></li>
@@ -153,8 +153,8 @@
   </script>
 
   <div data-role="page" id="habit">
-    <div data-role="header" data-position="inline">
-      <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
+    <div data-role="header" data-position="fixed" data-id="title">
+      <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
       <h1>Sayvd</h1>
       <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
     </div>
@@ -164,7 +164,7 @@
       <ul class="habit-list" data-role="listview">
       </ul>
     </div> 
-    <div data-role="footer" data-position="fixed">
+    <div data-role="footer" data-position="fixed" data-id="mainmenu">
       <div data-role="navbar">
         <ul>
           <li><a href="#feed">Feed</a></li>
@@ -183,8 +183,8 @@
   </script>
 
   <div data-role="page" id="goal">
-    <div data-role="header" data-position="inline">
-      <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
+    <div data-role="header" data-position="fixed" data-id="title">
+      <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
       <h1>Sayvd</h1>
       <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
       <div data-role="navbar">
@@ -198,7 +198,7 @@
       <ul class="goal-list" data-role="listview">
       </ul>
     </div>
-    <div data-role="footer" data-position="fixed">
+    <div data-role="footer" data-position="fixed" data-id="mainmenu">
       <div data-role="navbar">
         <ul>
           <li><a href="#feed">Feed</a></li>
@@ -232,8 +232,8 @@
   </script>
 
   <div data-role="page" id="newgoal">
-    <div data-role="header" data-position="inline">
-      <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
+    <div data-role="header" data-position="fixed" data-id="title">
+      <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
       <h1>Sayvd</h1>
       <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
       <div data-role="navbar">
@@ -250,7 +250,7 @@
       <div>Price £ <input class="target currency" type="range" value="100" min="20" step="10" max="1000"></input></div>
       <a class="save" href="#goal" data-role="button">Save</a>
     </div>
-    <div data-role="footer" data-position="fixed">
+    <div data-role="footer" data-position="fixed" data-id="mainmenu">
       <div data-role="navbar">
         <ul>
           <li><a href="#feed">Feed</a></li>
@@ -269,8 +269,8 @@
   </script>
 
   <div data-role="page" id="feed">
-    <div data-role="header" data-position="inline">
-      <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
+    <div data-role="header" data-position="fixed" data-id="title">
+      <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
       <h1>Sayvd</h1>
       <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
     </div>
@@ -278,7 +278,7 @@
       <ul class="save-list" data-role="listview">
       </ul>
     </div>
-    <div data-role="footer" data-position="fixed">
+    <div data-role="footer" data-position="fixed" data-id="mainmenu">
       <div data-role="navbar">
         <ul>
           <li><a href="#feed" class="ui-btn-active ui-state-persist">Feed</a></li>
@@ -303,15 +303,15 @@
   </script>
 
   <div data-role="page" id="config">
-    <div data-role="header" data-position="inline">
-      <a href="#help1" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
+    <div data-role="header" data-position="fixed" data-id="title">
+      <a href="#help0" data-role="button" data-icon="star" data-iconpos="notext">Help</a>
       <h1>Sayvd</h1>
       <a href="#config" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-active ui-state-persist">Options</a>
     </div>
     <div data-role="content">
       <div>This would be where you could configure obscure options, but it's not made yet, so there's nothing here.</div>
     </div>
-    <div data-role="footer" data-position="fixed">
+    <div data-role="footer" data-position="fixed" data-id="mainmenu">
       <div data-role="navbar">
         <ul>
           <li><a href="#feed">Feed</a></li>
