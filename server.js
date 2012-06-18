@@ -6,4 +6,4 @@ var app = connect()
   .use(connect.logger('dev'))
   .use(connect.static('sayvd/client/core/www'))
 
-http.createServer(app).listen(5000);
+http.createServer(app).listen(11220);

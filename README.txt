@@ -16,7 +16,7 @@ $ npm install
 
 $ node server.js
 
-4) Open a browser and go to http://localhost:5000
+4) Open a browser and go to http://localhost:11220
 
 To run the Sayvd client in an Android emulator in Eclipse:
 
