@@ -8,11 +8,15 @@ To run the Sayvd client on a browser:
 
 2) Clone the repos from git, and cd into the sayvd-client directory
 
-3) Run
+3) Install dependencies
 
-$ node static_server.js
+$ npm install
 
-4) Open a browser and go to http://localhost:8888
+4) Run server
+
+$ node server.js
+
+4) Open a browser and go to http://localhost:5000
 
 To run the Sayvd client in an Android emulator in Eclipse:
 

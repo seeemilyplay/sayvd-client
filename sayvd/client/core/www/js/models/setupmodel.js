@@ -6,7 +6,6 @@ window.Setup = Backbone.Model.extend({
   localStorage: new Backbone.LocalStorage("setup"),
   setDone: function() {
     this.set({done: true});
-    console.log("saving this");
     this.save();
   }
 });
