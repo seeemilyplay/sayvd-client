@@ -1,9 +1,9 @@
 window.Setup = Backbone.Model.extend({
   defaults: {
-    id: "setup",
+    id: 'setup',
     done: false
   },
-  localStorage: new Backbone.LocalStorage("setup"),
+  localStorage: new Backbone.LocalStorage('setup'),
   setDone: function() {
     this.set({done: true});
     this.save();

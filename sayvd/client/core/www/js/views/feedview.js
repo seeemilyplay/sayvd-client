@@ -21,7 +21,7 @@ window.FeedView = Backbone.View.extend({
     this.renderListItem(save);
     try {
       //todo: figure out why this sometimes errors
-      this.savelist.listview("refresh");
+      this.savelist.listview('refresh');
     } catch (e) {
       console.error(e);
     }

@@ -32,7 +32,7 @@ window.Goal = Backbone.Model.extend({
 
 window.GoalCollection = Backbone.Collection.extend({
   model: Goal,
-  localStorage: new Backbone.LocalStorage("goals"),
+  localStorage: new Backbone.LocalStorage('goals'),
   addGoal: function(rawname, target) {
     var name = rawname.trim();
 

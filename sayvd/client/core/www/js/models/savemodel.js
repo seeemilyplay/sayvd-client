@@ -16,13 +16,13 @@ window.Save = Backbone.Model.extend({
 
 window.SaveCollection = Backbone.Collection.extend({
   model: Save,
-  localStorage: new Backbone.LocalStorage("saves"),
+  localStorage: new Backbone.LocalStorage('saves'),
   addSave: function(habit, goal, amount) {
     var now = new Date().getTime();
     var result = this.create({
       time: now,
-      habit: habit.get("name"),
-      goal: goal.get("name"),
+      habit: habit.get('name'),
+      goal: goal.get('name'),
       amount: amount
     });
     if (result) {

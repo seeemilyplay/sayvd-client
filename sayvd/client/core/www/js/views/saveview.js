@@ -29,7 +29,7 @@ window.SaveView = Backbone.View.extend({
     _.each(this.model.get('goals').models, function(goal) {
       var item = $('<option />').attr('value', i).text(goal.get('name'));
       i++;
-      if (goal.get("name") === currentgoal.get("name")) {
+      if (goal.get('name') === currentgoal.get('name')) {
         item.attr('selected', 'true');
       }
       select.prepend(item);

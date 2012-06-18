@@ -8,7 +8,7 @@ window.Habit = Backbone.Model.extend({
 
 window.HabitCollection = Backbone.Collection.extend({
   model: Habit,
-  localStorage: new Backbone.LocalStorage("habits"),
+  localStorage: new Backbone.LocalStorage('habits'),
   addHabit: function(rawname) {
     var name = rawname.trim();
 
