@@ -1,0 +1,9 @@
+{
+  "name": "sayvd-client-core",
+  "version": "0.0.1",
+  "dependencies": {
+  },
+  "engines": {
+    "node": "0.6.x"
+  }
+}
