@@ -10,7 +10,6 @@ To run the Sayvd client on a browser:
 
 3) Run
 
-$ cd sayvd/client/core
 $ node static_server.js
 
 4) Open a browser and go to http://localhost:8888
@@ -25,7 +24,6 @@ To run the Sayvd client in an Android emulator in Eclipse:
 
 $ mkdir sayvd/client/android/assets
 $ cp -r sayvd/client/core/www sayvd/client/android/assets/www
-$ rm sayvd/client/android/assets/www/static_server.js
 
 4) Create an Eclipse android project based on sayvd/client/android
 
