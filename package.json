@@ -2,9 +2,9 @@
   "name": "sayvd-client",
   "version": "0.0.1",
   "dependencies": {
+    "connect": "2.3.x"
   },
   "engines": {
-    "node": "0.6.x",
-    "connect": "2.3.x"
+    "node": "0.6.x"
   }
 }
