@@ -66,7 +66,7 @@ window.NewGoalView = Backbone.View.extend({
   save: function() {
     var targetinput = $(this.el).find('input.target');
     var goals = this.model.get("goals");
-    var result = goals.save(this.nameinput.val(), parseFloat(targetinput.val()));
+    var result = goals.addGoal(this.nameinput.val(), parseFloat(targetinput.val()));
     if (result) {
       this.model.set({currentgoal: goals.models[goals.length - 1]});
     }

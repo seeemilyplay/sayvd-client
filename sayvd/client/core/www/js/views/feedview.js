@@ -11,8 +11,8 @@ window.FeedView = Backbone.View.extend({
   },
   renderListItem: function(save) {
     var li = _.template($('#feed-li-template').html(), {
-      habit: save.get('habit').get('name'),
-      goal: save.get('goal').get('name'),
+      habit: save.get('habit'),
+      goal: save.get('goal'),
       amount: save.get('amount')
     });
     this.savelist.prepend(li);

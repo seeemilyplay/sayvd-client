@@ -46,6 +46,10 @@ window.HabitView = Backbone.View.extend({
     this.nameinput.val('Type your habit');
   },
   save: function() {
-    return this.model.get('habits').save(this.nameinput.val());
+    var result = this.model.get('habits').addHabit(this.nameinput.val());
+    if (result) {
+      this.reset();
+    }
+    return result;
   }
 });

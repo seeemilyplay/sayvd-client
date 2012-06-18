@@ -51,8 +51,8 @@ window.SaveView = Backbone.View.extend({
   save: function() {
     var amountinput = $(this.el).find('input.amount');
     var saves = this.model.get('saves');
-    return saves.save(this.model.get('currenthabit'),
-                      this.model.get('currentgoal'),
-                      parseFloat(amountinput.val()));
+    return saves.addSave(this.model.get('currenthabit'),
+                         this.model.get('currentgoal'),
+                         parseFloat(amountinput.val()));
   }
 });

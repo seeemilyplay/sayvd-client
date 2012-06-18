@@ -12,16 +12,18 @@ window.AppView = Backbone.View.extend({
     this.beforesetup = false;
     this.aftersetup = false;
 
-    this.model.bind("change:setup", this.initViews);
+    this.model.get("setup").bind("change", this.initViews);
     this.initViews();
   },
   initViews: function() {
-    var setup = this.model.get("setup");
-    if (!setup && !this.beforesetup) {
+    var setup = this.model.get("setup").get("done");
+    if (!this.beforesetup) {
       this.initFirstGoalView();
       this.initSetupView();
       this.beforesetup = true;
-    } else if (setup && !this.aftersetup) {
+    }
+    
+    if (setup && !this.aftersetup) {
       this.initSaveView();
       this.initHabitView();
       this.initGoalView();
@@ -44,7 +46,8 @@ window.AppView = Backbone.View.extend({
                   jQuery("#help1"),
                   jQuery("#help2")],
       setuppage: jQuery("#setup"),
-      testpage: jQuery("#test")
+      testpage: jQuery("#test"),
+      splashpage: jQuery("#splash")
     });
   },
   initSaveView: function() {

@@ -15,9 +15,24 @@
 
   <script src="libs/underscore-min.js"></script>
   <script src="libs/backbone-min.js"></script>
+  <script src="libs/backbone.localStorage-min.js"></script>
 
 </head>
 <body>
+
+  <div data-role="page" id="splash">
+    <div data-role="header" data-position="fixed" data-id="title">
+      <h1>Sayvd</h1>
+    </div>
+    <div data-role="content">
+      <h2>Sayvd Splashpage</h2>
+      <p>
+        Save for what you want!
+      </p>
+      <a href="#save" class="save" data-role="button">Get Saving!</a>
+      <a href="#help0" class="setup" data-role="button">Get Started!</a>
+    </div>
+  </div>
 
   <div data-role="page" id="help0">
     <div data-role="header" data-position="fixed" data-id="title">
@@ -199,8 +214,8 @@
     </div>
     <div data-role="content">
       <input class="habit" type="text" value="Type your habit"></input>
-      <a class="save" data-role="button" data-inline="true" >OK</a>
-      <ul class="habit-list" data-role="listview">
+      <a class="save" data-role="button" data-inline="true">OK</a>
+      <ul class="habit-list" data-role="listview" data-inset="true">
       </ul>
     </div> 
     <div data-role="footer" data-position="fixed" data-id="mainmenu">
@@ -336,6 +351,7 @@
   <script src="js/models/habitmodel.js"></script>
   <script src="js/models/goalmodel.js"></script>
   <script src="js/models/savemodel.js"></script>
+  <script src="js/models/setupmodel.js"></script>
   <script src="js/models/appmodel.js"></script>
 
   <script src="js/views/habitview.js"></script>
@@ -345,12 +361,7 @@
   <script src="js/views/setupview.js"></script>
   <script src="js/views/appview.js"></script>
 
-  <script>
-    var app = new App();
-    var appview = new AppView({
-      model: app
-    });
-  </script>
+  <script src="js/main.js"></script>
 
 </body>
 </html>

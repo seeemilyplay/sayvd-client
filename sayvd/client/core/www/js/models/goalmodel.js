@@ -1,14 +1,21 @@
 window.Goal = Backbone.Model.extend({
-  defaults: {
-    name: '',
-    target: 0.0,
-    saved: 1.0
+  validate: function(args) {
+    if (args.name.length === 0 ||
+        args.name === 'Goal' ||
+        args.name === 'Insert dream toy here') {
+      return false;
+    }
+
+    if (args.target < 0.01) {
+      return false;
+    }
   },
-  save: function(amount) {
+  accumulateSaved: function(amount) {
     var saved = this.get('saved');
     this.set({
       saved: saved + amount
     });
+    this.save();
   },
   percentage: function() {
     var saved = this.get('saved');
@@ -25,30 +32,20 @@ window.Goal = Backbone.Model.extend({
 
 window.GoalCollection = Backbone.Collection.extend({
   model: Goal,
-  save: function(rawname, target) {
+  localStorage: new Backbone.LocalStorage("goals"),
+  addGoal: function(rawname, target) {
     var name = rawname.trim();
 
-    var named = name.length > 0 && name !== 'Goal' && name !== 'Insert dream toy here';
-    var targeted = target > 0.0;
-
-    var unique = true;
     _.each(this.models, function(goal) {
       if (name === goal.get('name')) {
-        unique = false;
+        return false;
       }
     });
 
-    if (named && targeted && unique) {
-      var goal = new Goal();
-      goal.set({
-        name: name,
-        target: target
-      });
-      this.add(goal);
-      return true;
-    } else {
-      return false;
-    }
+    return this.create({
+      name: name,
+      target: target,
+      saved: 1.0
+    });
   }
 });
-
