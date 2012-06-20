@@ -258,15 +258,19 @@
 
   <script type="text/template" id="goal-li-template">
     <li>
-      <div>Goal</div>
+      <h3>Goal: <%= name %></h3>
       <div>
         <div class="left">
-          <div class="percentage"><%= percentage %>%</div>
+
         </div>
         <div class="right">
-          <div><%= name %></div>
+          <div class="percentage"><%= percentage %>%</div>
           <div>Saved £<span class='saved-num'><%= saved %></span> of £<%= target %></div>
         </div>
+      </div>
+      <div class="bar">
+        <div class="saved part" style="width:<%= percentage * 0.9 %>%"></div>
+        <div class="target part" style="width:<%= (100 - percentage) * 0.9 %>%"></div>
       </div>
     </li>
   </script>

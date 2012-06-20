@@ -1,10 +1,10 @@
 ul {
-  padding: 0; 
-  margin: 0; 
+  padding: 0;
+  margin: 0;
 }
 
 li {
-  list-style-type:none; 
+  list-style-type:none;
 }
 
 input.currency {
@@ -45,12 +45,62 @@ input.currency {
 }
 
 #goal .percentage {
-  margin-top: auto;
-  margin-bottom: 5px;
-  margin-right: auto;
-  padding: 10px 5px;
   font-size: 24px;
-  border: solid 1px black;
+}
+
+#goal .bar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 50px;
+}
+
+#goal .bar .part {
+  height: 20px;
+  float: left;
+
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+}
+
+#goal .bar .saved.part {
+  -moz-border-radius-topleft: .6em;
+  -webkit-border-top-left-radius: .6em;
+  border-top-left-radius: .6em;
+  -moz-border-radius-bottomleft: .6em;
+  -webkit-border-bottom-left-radius: .6em;
+  border-bottom-left-radius: .6em;
+
+  border: 1px solid #2373A5;
+  background: #5393C5;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#5393C5),to(#6FACD5));
+  background-image: -webkit-linear-gradient(#5393C5,#6FACD5);
+  background-image: -moz-linear-gradient(#5393C5,#6FACD5);
+  background-image: -ms-linear-gradient(#5393C5,#6FACD5);
+  background-image: -o-linear-gradient(#5393C5,#6FACD5);
+  background-image: linear-gradient(#5393C5,#6FACD5);
+
+  min-width: 15px;
+  border-right: none;
+}
+
+#goal .bar .target.part {
+  -moz-border-radius-topright: .6em;
+  -webkit-border-top-right-radius: .6em;
+  border-top-right-radius: .6em;
+  -moz-border-radius-bottomright: .6em;
+  -webkit-border-bottom-right-radius: .6em;
+  border-bottom-right-radius: .6em;border: 1px solid #CCC;
+
+  background: #EEE;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(white),to(#F1F1F1));
+  background-image: -webkit-linear-gradient(white,#F1F1F1);
+  background-image: -moz-linear-gradient(white,#F1F1F1);
+  background-image: -ms-linear-gradient(white,#F1F1F1);
+  background-image: -o-linear-gradient(white,#F1F1F1);
+  background-image: linear-gradient(white,#F1F1F1);
+
+  min-width: 15px;
 }
 
 #newgoal .subtitle {

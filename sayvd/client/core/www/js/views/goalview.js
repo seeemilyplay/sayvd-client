@@ -15,9 +15,9 @@ window.GoalView = Backbone.View.extend({
   renderListItem: function(goal) {
     var li = $(_.template($('#goal-li-template').html(), {
       name: goal.get('name'),
-      target: goal.get('target'),
-      saved: goal.get('saved'),
-      percentage: goal.percentage()
+      target: goal.get('target').toFixed(2),
+      saved: goal.get('saved').toFixed(2),
+      percentage: goal.percentage().toFixed(1)
     }));
     this.goallist.prepend(li);
     goal.bind('change:saved', function() {
