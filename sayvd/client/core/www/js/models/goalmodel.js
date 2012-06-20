@@ -3,11 +3,11 @@ window.Goal = Backbone.Model.extend({
     if (args.name.length === 0 ||
         args.name === 'Goal' ||
         args.name === 'Insert dream toy here') {
-      return false;
+      return "Invalid name";
     }
 
-    if (args.target < 0.01) {
-      return false;
+    if (args.target < 1.00) {
+      return "Target must be more than 1.00";
     }
   },
   accumulateSaved: function(amount) {
@@ -36,11 +36,15 @@ window.GoalCollection = Backbone.Collection.extend({
   addGoal: function(rawname, target) {
     var name = rawname.trim();
 
+    var unique = true;
     _.each(this.models, function(goal) {
       if (name === goal.get('name')) {
-        return false;
+        unique = false;
       }
     });
+    if (!unique) {
+      return false;
+    }
 
     return this.create({
       name: name,

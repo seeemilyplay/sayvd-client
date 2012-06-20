@@ -1,15 +1,15 @@
 window.Save = Backbone.Model.extend({
   validate: function(args) {
     if (args.habit.length === 0) {
-      return false;
+      return "Habit is required";
     }
 
     if (args.goal.length === 0) {
-      return false;
+      return "Goal is required";
     }
 
     if (args.amount.length < 0.01) {
-      return false;
+      return "Amount must be more than 0.01";
     }
   }
 });
