@@ -264,13 +264,15 @@
 
         </div>
         <div class="right">
-          <div class="percentage"><%= percentage %>%</div>
-          <div>Saved £<span class='saved-num'><%= saved %></span> of £<%= target %></div>
+          <div class="percentage"><%= percentage %></div>
+          <div>Saved £<span class='saved'><%= saved %></span> of £<span class='target'><%= target %></target></div>
         </div>
       </div>
       <div class="bar">
-        <div class="saved part" style="width:<%= percentage * 0.9 %>%"></div>
-        <div class="target part" style="width:<%= (100 - percentage) * 0.9 %>%"></div>
+        <div class="filled edge left"></div>
+        <div class="filled within" style="width:<%= filledwidth %>"></div>
+        <div class="within" style="width:<%= unfilledwidth %>%"></div>
+        <div class="edge right<%= completelyfilled ? ' filled' : ''%>"></div>
       </div>
     </li>
   </script>

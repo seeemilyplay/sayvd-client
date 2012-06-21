@@ -25,7 +25,7 @@ window.Goal = Backbone.Model.extend({
     } else if (target < 0.01) {
       return 100.0;
     } else {
-      return (saved * 100.0) / target;
+      return Math.min(Math.max((saved * 100.0) / target, 0.0), 100.0);
     }
   }
 });

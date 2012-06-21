@@ -63,35 +63,8 @@ input.currency {
   background-clip: padding-box;
 }
 
-#goal .bar .saved.part {
-  -moz-border-radius-topleft: .6em;
-  -webkit-border-top-left-radius: .6em;
-  border-top-left-radius: .6em;
-  -moz-border-radius-bottomleft: .6em;
-  -webkit-border-bottom-left-radius: .6em;
-  border-bottom-left-radius: .6em;
-
-  border: 1px solid #2373A5;
-  background: #5393C5;
-  background-image: -webkit-gradient(linear,left top,left bottom,from(#5393C5),to(#6FACD5));
-  background-image: -webkit-linear-gradient(#5393C5,#6FACD5);
-  background-image: -moz-linear-gradient(#5393C5,#6FACD5);
-  background-image: -ms-linear-gradient(#5393C5,#6FACD5);
-  background-image: -o-linear-gradient(#5393C5,#6FACD5);
-  background-image: linear-gradient(#5393C5,#6FACD5);
-
-  min-width: 15px;
-  border-right: none;
-}
-
-#goal .bar .target.part {
-  -moz-border-radius-topright: .6em;
-  -webkit-border-top-right-radius: .6em;
-  border-top-right-radius: .6em;
-  -moz-border-radius-bottomright: .6em;
-  -webkit-border-bottom-right-radius: .6em;
-  border-bottom-right-radius: .6em;border: 1px solid #CCC;
-
+#goal .bar div {
+  border: 1px solid #CCC;
   background: #EEE;
   background-image: -webkit-gradient(linear,left top,left bottom,from(white),to(#F1F1F1));
   background-image: -webkit-linear-gradient(white,#F1F1F1);
@@ -100,7 +73,50 @@ input.currency {
   background-image: -o-linear-gradient(white,#F1F1F1);
   background-image: linear-gradient(white,#F1F1F1);
 
-  min-width: 15px;
+  height: 20px;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+#goal .bar .filled {
+  border: 1px solid #2373A5;
+  background: #5393C5;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#5393C5),to(#6FACD5));
+  background-image: -webkit-linear-gradient(#5393C5,#6FACD5);
+  background-image: -moz-linear-gradient(#5393C5,#6FACD5);
+  background-image: -ms-linear-gradient(#5393C5,#6FACD5);
+  background-image: -o-linear-gradient(#5393C5,#6FACD5);
+  background-image: linear-gradient(#5393C5,#6FACD5);
+}
+
+#goal .bar .edge {
+  min-width: 10px;
+}
+
+#goal .bar .within {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+#goal .bar .edge.left {
+  -moz-border-radius-topleft: .6em;
+  -webkit-border-top-left-radius: .6em;
+  border-top-left-radius: .6em;
+  -moz-border-radius-bottomleft: .6em;
+  -webkit-border-bottom-left-radius: .6em;
+  border-bottom-left-radius: .6em;
+  border-right: none;
+}
+
+#goal .bar .edge.right {
+  -moz-border-radius-topright: .6em;
+  -webkit-border-top-right-radius: .6em;
+  border-top-right-radius: .6em;
+  -moz-border-radius-bottomright: .6em;
+  -webkit-border-bottom-right-radius: .6em;
+  border-bottom-right-radius: .6em;
+  border-left: none;
 }
 
 #newgoal .subtitle {

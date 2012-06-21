@@ -13,16 +13,41 @@ window.GoalView = Backbone.View.extend({
     _.each(this.model.models, this.renderListItem);
   },
   renderListItem: function(goal) {
-    var li = $(_.template($('#goal-li-template').html(), {
-      name: goal.get('name'),
-      target: goal.get('target').toFixed(2),
-      saved: goal.get('saved').toFixed(2),
-      percentage: goal.percentage().toFixed(1)
-    }));
+    var makeData = function(goal) {
+      return {
+        name: goal.get('name'),
+        percentage: goal.percentage().toFixed(1) + '%',
+        saved: goal.get('saved').toFixed(2),
+        target: goal.get('target').toFixed(0),
+        filledwidth: goal.percentage() * 0.86 + '%',
+        unfilledwidth: (100 - goal.percentage()) * 0.86 + '%',
+        completelyfilled: goal.percentage() === 100.0
+      };
+    }
+    var li = $(_.template($('#goal-li-template').html(), makeData(goal)));
     this.goallist.prepend(li);
+    var goallist = this.goallist;
+    var refresh = function() {
+      try {
+        goallist.listview('refresh');
+      } catch (e) {
+        console.error(e);
+      }
+    }
     goal.bind('change:saved', function() {
-      li.find('.percentage').text(goal.percentage() + '%');
-      li.find('.saved-num').text(goal.get('saved'));
+      var data = makeData(goal);
+      li.find('.name').text(data.name);
+      li.find('.percentage').text(data.percentage);
+      li.find('.saved').text(data.saved);
+      li.find('.target').text(data.target);
+      li.find('.filled.within').css('width', data.filledwidth);
+      li.find('.unfilled.within').css('width', data.unfilledwidth);
+      if (data.completelyfilled) {
+        li.find('.edge.right').addClass('filled');
+      } else {
+        li.find('.edge.right').removeClass('filled');
+      }
+      refresh();
       return true;
     });
   },
