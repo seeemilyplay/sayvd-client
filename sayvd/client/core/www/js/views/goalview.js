@@ -3,18 +3,19 @@ window.GoalView = Backbone.View.extend({
     _(this).bindAll('renderList',
                     'renderListItem',
                     'renderNewListItem');
-    this.model.bind('add', this.renderNewListItem);
+    this.model.get("goals").bind('add', this.renderNewListItem);
 
     this.renderList();
   },
   renderList: function() {
     this.goallist = $(this.el).find('.goal-list');
 
-    _.each(this.model.models, this.renderListItem);
+    _.each(this.model.get("goals").models, this.renderListItem);
   },
   renderListItem: function(goal) {
     var makeData = function(goal) {
       return {
+        id: goal.get('id'),
         name: goal.get('name'),
         percentage: goal.percentage().toFixed(1) + '%',
         saved: goal.get('saved').toFixed(2),
@@ -27,13 +28,10 @@ window.GoalView = Backbone.View.extend({
     var li = $(_.template($('#goal-li-template').html(), makeData(goal)));
     this.goallist.prepend(li);
     var goallist = this.goallist;
-    var refresh = function() {
-      try {
-        goallist.listview('refresh');
-      } catch (e) {
-        console.error(e);
-      }
-    }
+    var model = this.model;
+    li.find("a").click(function() {
+      model.set({currentgoal: goal});
+    });
     goal.bind('change:saved', function() {
       var data = makeData(goal);
       li.find('.name').text(data.name);
@@ -47,7 +45,6 @@ window.GoalView = Backbone.View.extend({
       } else {
         li.find('.edge.right').removeClass('filled');
       }
-      refresh();
       return true;
     });
   },
@@ -94,7 +91,7 @@ window.NewGoalView = Backbone.View.extend({
     var result = goals.addGoal(this.nameinput.val(),
                                parseFloat(targetinput.val()));
     if (result) {
-      this.model.set({currentgoal: goals.models[goals.length - 1]});
+      this.model.set({currentgoal: result});
     }
     return result;
   }

@@ -258,23 +258,25 @@
 
   <script type="text/template" id="goal-li-template">
     <li>
-      <h3>Goal: <%= name %></h3>
-      <div>
-        <div class="left">
+      <a href="#save">
+        <h3>Goal: <%= name %></h3>
+        <div>
+          <div class="left">
 
+          </div>
+          <div class="right">
+            <div class="percentage"><%= percentage %></div>
+            <div>Saved £<span class='saved'><%= saved %></span> of £<span class='target'><%= target %></target></div>
+          </div>
         </div>
-        <div class="right">
-          <div class="percentage"><%= percentage %></div>
-          <div>Saved £<span class='saved'><%= saved %></span> of £<span class='target'><%= target %></target></div>
+        <div class="bar">
+          <div class="filled edge left"></div>
+          <div class="filled within" style="width:<%= filledwidth %>"></div>
+          <div class="within" style="width:<%= unfilledwidth %>%"></div>
+          <div class="edge right<%= completelyfilled ? ' filled' : ''%>"></div>
         </div>
-      </div>
-      <div class="bar">
-        <div class="filled edge left"></div>
-        <div class="filled within" style="width:<%= filledwidth %>"></div>
-        <div class="within" style="width:<%= unfilledwidth %>%"></div>
-        <div class="edge right<%= completelyfilled ? ' filled' : ''%>"></div>
-      </div>
-    </li>
+      </li>
+    </a>
   </script>
 
   <div data-role="page" id="newgoal">

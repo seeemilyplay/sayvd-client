@@ -64,7 +64,7 @@ window.AppView = Backbone.View.extend({
   },
   initGoalView: function() {
     this.goalview = new GoalView({
-      model: this.model.get('goals'),
+      model: this.model,
       el: jQuery('#goal')
     });
   },
