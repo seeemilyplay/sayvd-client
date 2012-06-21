@@ -3,6 +3,10 @@ window.Habit = Backbone.Model.extend({
     if (args.name.length === 0 || args.name === 'Type your habit') {
       return "Invalid name";
     }
+  },
+  setCost: function(cost) {
+    this.set({cost: cost});
+    this.save();
   }
 });
 

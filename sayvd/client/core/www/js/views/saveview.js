@@ -3,6 +3,7 @@ window.SaveView = Backbone.View.extend({
     _(this).bindAll('render',
                     'renderHabit',
                     'renderGoal',
+                    'renderAmount',
                     'initializeListeners',
                     'save');
 
@@ -11,6 +12,7 @@ window.SaveView = Backbone.View.extend({
   render: function() {
     this.renderHabit();
     this.renderGoal();
+    this.renderAmount();
   },
   renderHabit: function() {
     var habit = $(this.el).find('.habit');
@@ -42,6 +44,15 @@ window.SaveView = Backbone.View.extend({
     });
     goal.append(select);
     goal.trigger('create');
+  },
+  renderAmount: function() {
+    var cost = this.model.get('currenthabit').get('cost');
+    if (cost === undefined) {
+      cost = 1.0;
+    }
+    var input = $(this.el).find('input.currency');
+    input.attr('value', cost);
+    input.slider('refresh');
   },
   initializeListeners: function() {
     $(this.el).bind('pagebeforeshow', this.render);

@@ -27,6 +27,7 @@ window.SaveCollection = Backbone.Collection.extend({
     });
     if (result) {
       goal.accumulateSaved(amount);
+      habit.setCost(amount);
     }
     return result;
   }
