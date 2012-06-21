@@ -14,7 +14,7 @@ window.HabitCollection = Backbone.Collection.extend({
 
     var unique = true;
     _.each(this.models, function(habit) {
-      if (name === habit.get('name')) {
+      if (name.toLowerCase() === habit.get('name').toLowerCase()) {
         unique = false;
       }
     });

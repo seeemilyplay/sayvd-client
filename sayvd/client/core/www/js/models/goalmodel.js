@@ -38,7 +38,7 @@ window.GoalCollection = Backbone.Collection.extend({
 
     var unique = true;
     _.each(this.models, function(goal) {
-      if (name === goal.get('name')) {
+      if (name.toLowerCase() === goal.get('name').toLowerCase()) {
         unique = false;
       }
     });
