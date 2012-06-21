@@ -49,7 +49,7 @@ window.GoalCollection = Backbone.Collection.extend({
     return this.create({
       name: name,
       target: target,
-      saved: 1.0
+      saved: (this.length === 0) ? 1.0 : 0.0
     });
   }
 });
