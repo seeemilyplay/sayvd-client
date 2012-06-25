@@ -4,15 +4,19 @@ window.SaveView = Backbone.View.extend({
                     'renderHabit',
                     'renderGoal',
                     'renderAmount',
+                    'currencyTextChanged',
+                    'sliderChanged',
+                    'applyCostToSlider',
                     'initializeListeners',
+                    'initializePostRenderListeners',
                     'save');
-
     this.initializeListeners();
   },
   render: function() {
     this.renderHabit();
     this.renderGoal();
     this.renderAmount();
+    this.initializePostRenderListeners();
   },
   renderHabit: function() {
     var habit = $(this.el).find('.habit');
@@ -48,16 +52,46 @@ window.SaveView = Backbone.View.extend({
   renderAmount: function() {
     var cost = this.model.get('currenthabit').get('cost');
     if (cost === undefined) {
-      cost = 1.0;
+      cost = 1;
     }
-    var input = $(this.el).find('input.currency');
+    this.applyCostToSlider(cost);
+  },
+  currencyTextChanged: function() {
+    var cost = $('input.currencytext').val();
+    this.applyCostToSlider(cost);
+  },
+  sliderChanged: function() {
+    var cost = $('#save-currency').val();
+    this.applyCostToTextField(cost);
+  },
+  applyCostToTextField: function(cost) {
+    var formattedCost = this.formatCost(cost);
+    $('input.currencytext').attr('value', formattedCost);
+  },
+  applyCostToSlider: function(cost) {
+    var input = $('#save-currency');
     input.attr('value', cost);
     input.slider('refresh');
   },
+  formatCost: function(cost) {
+    var formattedCost = 0;
+    if (cost >=0 || cost <= 15) {
+        formattedCost = cost;
+    } else if (cost > 15) {
+      formattedCost = 15;
+    } else {
+      formattedCost = 0;
+    }
+    formattedCost = $.formatNumber(formattedCost, {format:"#.00", locale:"gb"});
+    return formattedCost;
+  },
   initializeListeners: function() {
     $(this.el).bind('pagebeforeshow', this.render);
-
     $(this.el).find('.save').click(this.save);
+  },
+  initializePostRenderListeners: function () {
+    $(this.el).find('input.currencytext').bind('change', this.currencyTextChanged);
+    $('#save-currency').bind('change', this.sliderChanged);
   },
   save: function() {
     var amountinput = $(this.el).find('input.amount');

@@ -11,6 +11,10 @@ input.currency {
   min-width: 60px;
 }
 
+input.ui-slider-input {
+  display: none;
+}
+
 #save div.ui-slider,
 #newgoal div.ui-slider {
   display: block;

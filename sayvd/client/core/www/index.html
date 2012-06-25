@@ -12,6 +12,8 @@
   <script src="libs/jquery-1.7.2.min.js"></script>
   <script src="libs/jquery.mobile.min.js"></script>
   <script src="cordova-1.7.0.js"></script>
+  <script src="libs/jshashtable-2.1.min.js"></script>
+  <script src="libs/jquery.numberformatter-1.2.3.jsmin.js"></script>
 
   <script src="libs/underscore-min.js"></script>
   <script src="libs/backbone-min.js"></script>
@@ -144,7 +146,7 @@
       <h2>What would you like to save for?</h2>
       <p>Save for a snowboard, a trip or the deposit for an apartment.</p>
       <input class="name" type="text" value="Insert dream toy here"></input>
-      <div>Approximate price £ <input class="target currency" type="range" value="600" min="20" step="10" max="1000"></input></div>
+      <div>Approximate price £ <input class="target currency" type="range" value="600" min="20" step="10" max="1000"/></div>
       <a class="save" href="#setup" data-role="button">Save</a>
     </div>
   </div>
@@ -189,7 +191,7 @@
       <div>
         <span>I didn't </span><span class="habit"></span><span> and</span>
       </div>
-      <div>saved £ <input type="range" class="amount currency" value="1.0" min="0.1" step="0.1" max="15"></input></div>
+      <div>saved £ <input type="text" class="currencytext" value="1.00"/> <input id="save-currency" type="range" class="amount currency" value="1.0" min="0.1" step="0.1" max="15"/></div>
       <div>
         <span>for a </span><span class="goal"></span>
       </div>
@@ -213,7 +215,7 @@
       <a class="options" href="#config" data-role="button" data-icon="gear" data-iconpos="notext">Options</a>
     </div>
     <div data-role="content">
-      <input class="habit" type="text" value="Type your habit"></input>
+      <input class="habit" type="text" value="Type your habit"/>
       <a class="save" data-role="button" data-inline="true">OK</a>
       <ul class="habit-list" data-role="listview" data-inset="true">
       </ul>
@@ -266,7 +268,7 @@
           </div>
           <div class="right">
             <div class="percentage"><%= percentage %></div>
-            <div>Saved £<span class='saved'><%= saved %></span> of £<span class='target'><%= target %></target></div>
+            <div>Saved £<span class='saved'><%= saved %></span> of £<span class='target'><%= target %></span></div>
           </div>
         </div>
         <div class="bar">
@@ -294,8 +296,8 @@
     <div data-role="content">
       <div class="subtitle">Set a new goal</div>
       <div>What are you saving for?</div>
-      <input class="name" type="text" value="Goal"></input>
-      <div>Price £ <input class="target currency" type="range" value="100" min="20" step="10" max="1000"></input></div>
+      <input class="name" type="text" value="Goal"/>
+      <div>Price £ <input class="target currency" type="range" value="100" min="20" step="10" max="1000"/></div>
       <a class="save" href="#goal" data-role="button">Save</a>
     </div>
     <div data-role="footer" data-position="fixed" data-id="mainmenu">
