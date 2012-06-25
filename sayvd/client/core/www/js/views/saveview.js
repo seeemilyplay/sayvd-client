@@ -54,6 +54,7 @@ window.SaveView = Backbone.View.extend({
     if (cost === undefined) {
       cost = 1;
     }
+    this.applyCostToTextField(cost);
     this.applyCostToSlider(cost);
   },
   currencyTextChanged: function() {
@@ -74,14 +75,8 @@ window.SaveView = Backbone.View.extend({
     input.slider('refresh');
   },
   formatCost: function(cost) {
-    var formattedCost = 0;
-    if (cost >=0 || cost <= 15) {
-        formattedCost = cost;
-    } else if (cost > 15) {
-      formattedCost = 15;
-    } else {
-      formattedCost = 0;
-    }
+    var formattedCost = Math.min(cost, 15);
+    formattedCost = Math.max(formattedCost, 0);
     formattedCost = $.formatNumber(formattedCost, {format:"#.00", locale:"gb"});
     return formattedCost;
   },
