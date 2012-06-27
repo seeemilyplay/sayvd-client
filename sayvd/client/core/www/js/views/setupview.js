@@ -1,4 +1,4 @@
-window.SetupView = Backbone.View.extend({
+    window.SetupView = Backbone.View.extend({
   initialize: function(args) {
     _(this).bindAll('renderHelpPages',
                     'renderSetupPage',
