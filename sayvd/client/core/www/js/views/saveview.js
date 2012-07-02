@@ -8,15 +8,14 @@ window.SaveView = Backbone.View.extend({
                     'sliderChanged',
                     'applyCostToSlider',
                     'initializeListeners',
-                    'initializePostRenderListeners',
                     'save');
-    this.initializeListeners();
+
+    $(this.el).live('pageinit', this.initializeListeners);
   },
   render: function() {
     this.renderHabit();
     this.renderGoal();
     this.renderAmount();
-    this.initializePostRenderListeners();
   },
   renderHabit: function() {
     var habit = $(this.el).find('.habit');
@@ -83,8 +82,6 @@ window.SaveView = Backbone.View.extend({
   initializeListeners: function() {
     $(this.el).bind('pagebeforeshow', this.render);
     $(this.el).find('.save').click(this.save);
-  },
-  initializePostRenderListeners: function () {
     $(this.el).find('input.currencytext').bind('change', this.currencyTextChanged);
     $('#save-currency').bind('change', this.sliderChanged);
   },

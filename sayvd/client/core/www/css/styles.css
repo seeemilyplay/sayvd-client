@@ -11,8 +11,14 @@ input.currency {
   min-width: 60px;
 }
 
-input.ui-slider-input {
+#save input.ui-slider-input {
   display: none;
+}
+
+#save .ui-input-text {
+    display : inline-block;
+    width   : 60px;
+    vertical-align : middle;
 }
 
 #save div.ui-slider,
