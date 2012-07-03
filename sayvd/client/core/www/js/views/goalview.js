@@ -96,3 +96,67 @@ window.NewGoalView = Backbone.View.extend({
     return result;
   }
 });
+
+window.CurrentGoalView = Backbone.View.extend({
+  initialize: function(args) {
+    _(this).bindAll('render',
+                    'clearPie',
+                    'renderPie');
+
+    $(this.el).bind('pagebeforeshow', this.render);
+    $(this.el).bind('pagebeforeshow', this.clearPie);
+    $(this.el).bind('pageshow', this.renderPie);
+  },
+  render: function() {
+    $(this.el).find('.name').text(this.model.get('currentgoal').get('name'));
+  },
+  clearPie: function() {
+    $('#habit-pie').empty();
+  },
+  createColors: function(num) {
+    var colors = [];
+    for (var i = 0; i < (num - 1); i++) {
+      var mod = i % 5;
+      if (mod === 0) {
+        colors.push('#1E55BC');
+      } else if (mod === 1) {
+        colors.push('#1D29B2');
+      } else if (mod === 2) {
+        colors.push('#2372A5');
+      } else if (mod === 3) {
+        colors.push('#1EA8BC');
+      } else {
+        colors.push('#1DB29B');
+      }
+    }
+    colors.push('#ABACB2');
+    return colors;
+  },
+  renderPie: function() {
+    var goal = this.model.get('currentgoal');
+    var savings = this.model.createBreakdown(goal);
+    savings.push(['left', Math.max(0, goal.get('target') - goal.get('saved'))]);
+    var colors = this.createColors(savings.length);
+
+    var pie = $.jqplot('habit-pie', [savings], {
+      seriesDefaults: {
+        renderer:$.jqplot.DonutRenderer,
+        rendererOptions: {
+          thickness: 20,
+          shadowOffset: 0,
+          startAngle: savings.length > 1 ? -90 : undefined,
+          varyBarColor: true
+        }
+      },
+      gridPadding: {top:0, right:0, bottom:0, left:0},
+      grid: {
+        background: 'transparent',
+        borderWidth: 0,
+        shadow: false
+      },
+      seriesColors: colors
+    });
+
+    console.log(pie);
+  }
+});

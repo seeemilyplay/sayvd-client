@@ -7,6 +7,7 @@ window.AppView = Backbone.View.extend({
                     'initHabitView',
                     'initGoalView',
                     'initNewGoalView',
+                    'initCurrentGoalView',
                     'initFeedView');
 
     this.beforesetup = false;
@@ -28,6 +29,7 @@ window.AppView = Backbone.View.extend({
       this.initHabitView();
       this.initGoalView();
       this.initNewGoalView();
+      this.initCurrentGoalView();
       this.initFeedView();
       this.aftersetup = true;
     }
@@ -73,6 +75,12 @@ window.AppView = Backbone.View.extend({
       model: this.model,
       el: jQuery('#newgoal'),
       defaultText: 'Goal'
+    });
+  },
+  initCurrentGoalView: function() {
+    this.currentgoalview = new CurrentGoalView({
+      model: this.model,
+      el: jQuery('#currentgoal')
     });
   },
   initFeedView: function() {

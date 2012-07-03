@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="libs/css/jquery.mobile.min.css"/>
+  <link rel="stylesheet" href="libs/css/jquery.jqplot.css" />
 
   <link rel="stylesheet" href="css/styles.css"/>
 
@@ -13,12 +14,16 @@
   <script src="js/custom-scripting.js"></script>
   <script src="libs/jquery.mobile.min.js"></script>
   <script src="libs/cordova-1.8.1.js"></script>
-  <script src="libs/jshashtable-2.1.min.js"></script>
-  <script src="libs/jquery.numberformatter-1.2.3.jsmin.js"></script>
 
   <script src="libs/underscore-min.js"></script>
   <script src="libs/backbone-min.js"></script>
   <script src="libs/backbone.localStorage-min.js"></script>
+
+  <script src="libs/jshashtable-2.1.min.js"></script>
+  <script src="libs/jquery.numberformatter-1.2.3.jsmin.js"></script>
+  <script src="libs/jquery.jqplot.min.js"></script>
+  <script src="libs/jqplot.pieRenderer.min.js"></script>
+  <script src="libs/jqplot.donutRenderer.min.js"></script>
 
 </head>
 <body>
@@ -338,7 +343,8 @@
       </ul>
     </div>
     <div data-role="content">
-      <p>Expanded goal page</p>
+      <h3>Goal: <span class="name"></span></h3>
+      <div id="habit-pie"></div>
     </div>
     <div data-role="footer" data-position="fixed" data-id="mainmenu">
       <div data-role="navbar">
