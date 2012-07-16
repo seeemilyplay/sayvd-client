@@ -11,7 +11,7 @@ window.HabitCollection = Backbone.Collection.extend({
   populate: function() {
     this.create({
       name: 'cash',
-      imageurl: '/images/coffee.png',
+      imageurl: '/images/cash.png',
       cost: 5.00
     });
     this.create({
@@ -21,28 +21,23 @@ window.HabitCollection = Backbone.Collection.extend({
     });
     this.create({
       name: 'snacks',
-      imageurl: '/images/coffee.png',
+      imageurl: '/images/snacks.png',
       cost: 3.50
     });
     this.create({
       name: 'cigarettes',
-      imageurl: '/images/coffee.png',
+      imageurl: '/images/cigarettes.png',
       cost: 5.50
     });
     this.create({
       name: 'alcohol',
-      imageurl: '/images/coffee.png',
+      imageurl: '/images/alcohol.png',
       cost: 3.50
     });
     this.create({
       name: 'food',
-      imageurl: '/images/coffee.png',
+      imageurl: '/images/food.png',
       cost: 15.00
-    });
-    this.create({
-      name: 'clothes',
-      imageurl: '/images/coffee.png',
-      cost: 20.00
     });
   }
 });
