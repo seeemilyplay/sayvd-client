@@ -34,11 +34,20 @@ input.currency {
   display: inline-block;
 }
 
+#habit h2 {
+  margin: 0 15px;
+}
+
+#habit .ui-content {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 #habit .habit-list a {
   display: inline-block;
-  width: 165px;
-  height: 165px;
-  margin: 20px;
+  width: 130px;
+  height: 130px;
+  margin: 15px;
   background-color: white;
   background-repeat: no-repeat;
   background-position: center;
