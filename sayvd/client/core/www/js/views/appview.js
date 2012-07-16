@@ -1,8 +1,6 @@
 window.AppView = Backbone.View.extend({
   initialize: function(args) {
     _(this).bindAll('initViews',
-                    'initFirstGoalView',
-                    'initSetupView',
                     'initSaveView',
                     'initHabitView',
                     'initGoalView',
@@ -17,40 +15,12 @@ window.AppView = Backbone.View.extend({
     this.initViews();
   },
   initViews: function() {
-    var setup = this.model.get('setup').get('done');
-    if (!this.beforesetup) {
-      this.initFirstGoalView();
-      this.initSetupView();
-      this.beforesetup = true;
-    }
-
-    if (setup && !this.aftersetup) {
-      this.initSaveView();
-      this.initHabitView();
-      this.initGoalView();
-      this.initNewGoalView();
-      this.initCurrentGoalView();
-      this.initFeedView();
-      this.aftersetup = true;
-    }
-  },
-  initFirstGoalView: function() {
-    this.firstgoalview = new NewGoalView({
-      model: this.model,
-      el: jQuery('#firstgoal'),
-      defaultText: 'Insert dream toy here'
-    });
-  },
-  initSetupView: function() {
-    this.setupview = new SetupView({
-      model: this.model,
-      helppages: [jQuery('#help0'),
-                  jQuery('#help1'),
-                  jQuery('#help2')],
-      setuppage: jQuery('#setup'),
-      testpage: jQuery('#test'),
-      splashpage: jQuery('#splash')
-    });
+    this.initSaveView();
+    this.initHabitView();
+    this.initGoalView();
+    this.initNewGoalView();
+    this.initCurrentGoalView();
+    this.initFeedView();
   },
   initSaveView: function() {
     this.saveview = new SaveView({

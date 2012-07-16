@@ -34,13 +34,18 @@ input.currency {
   display: inline-block;
 }
 
-#habit .ui-content .ui-listview {
-  margin-top: 10px;
-}
-
-#habit input.ui-input-text {
+#habit .habit-list a {
   display: inline-block;
-  width: auto;
+  width: 165px;
+  height: 165px;
+  margin: 20px;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
 #goal .left {

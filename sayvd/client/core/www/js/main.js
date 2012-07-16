@@ -3,7 +3,7 @@ var habits = new HabitCollection();
 habits.fetch();
 console.log('habits (' + habits.length + ')');
 if (habits.length === 0) {
-  habits.addHabit('drink coffee');
+  habits.populate();
 }
 
 var goals = new GoalCollection();
