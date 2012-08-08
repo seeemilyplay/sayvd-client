@@ -34,6 +34,25 @@ input.currency {
   display: inline-block;
 }
 
+#save .banner {
+  background-image: url('/images/banner.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 149px;
+  text-align: center;
+}
+
+#save .habit {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+  padding: 25px;
+  text-align: center;
+  height: 99px;
+}
+
 #habit h2 {
   margin: 0 15px;
 }

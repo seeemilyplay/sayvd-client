@@ -19,11 +19,7 @@ window.SaveView = Backbone.View.extend({
   },
   renderHabit: function() {
     var habit = $(this.el).find('.habit');
-    habit.empty();
-    var button = $('<a href="#habit" data-role="button" data-inline="true" />');
-    button.text(this.model.get('currenthabit').get('name'));
-    habit.append(button);
-    habit.trigger('create');
+    habit.css("background-image", "url(" + this.model.get('currenthabit').get('imageurl') + ")");
   },
   renderGoal: function() {
     var goal = $(this.el).find('.goal');
